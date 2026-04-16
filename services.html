@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services — Juno Mktg · AI Marketing · Gold Coast & Treasure Coast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;}
+    :root{
+      --teal:#00B4CC;
+      --teal-light:#33C4D9;
+      --teal-pale:#E6F9FB;
+      --cream:#FFFFFF;
+      --cream2:#F5F5F5;
+      --navy:#0A2540;
+      --navy2:#0D3060;
+      --navy3:#164080;
+      --muted:#5A8A9F;
+      --coral:#E8735A;
+      --mono:'JetBrains Mono',monospace;
+    }
+
+    /* NAV */
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+    .nav-logo-mark{width:34px;height:34px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:0.75rem;color:#fff;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+
+    /* HERO */
+    .hero{background:var(--navy);padding:6rem 2.5rem 7rem;position:relative;overflow:hidden;}
+    .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .hero-bg-glow{position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,180,204,0.2) 0%,transparent 70%);z-index:1;}
+    .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:var(--teal-light);font-size:0.72rem;font-weight:600;padding:0.35rem 0.9rem;border-radius:4px;margin-bottom:1.75rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .eyebrow-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .hero h1{font-size:3.5rem;font-weight:900;line-height:1.05;letter-spacing:-0.04em;color:#fff;margin-bottom:1.25rem;max-width:700px;}
+    .hero h1 em{font-style:normal;color:var(--teal);}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:560px;}
+    .hero-waves{position:absolute;bottom:0;left:0;width:100%;overflow:hidden;line-height:0;z-index:3;}
+    .hero-waves svg{display:block;width:100%;height:80px;}
+    @keyframes wave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    @keyframes wave2{0%{transform:translateX(0);}100%{transform:translateX(50%);}}
+    @keyframes wave3{0%{transform:translateX(-50%);}100%{transform:translateX(0%);}}
+    .wave-path1{animation:wave1 12s linear infinite;}
+    .wave-path2{animation:wave2 9s linear infinite;}
+    .wave-path3{animation:wave3 15s linear infinite;}
+
+    /* SHARED */
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'✦';font-size:0.7rem;}
+    .section-heading{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:var(--navy);margin-bottom:1rem;}
+    .section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:560px;}
+
+    /* SERVICE CARDS */
+    .services-section{padding:5rem 0;background:var(--cream);}
+    .service-block{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;padding:4rem 0;border-bottom:1px solid #E8DDD0;}
+    .service-block:first-child{padding-top:3rem;}
+    .service-block:last-child{border-bottom:none;}
+    .service-block.reverse{direction:rtl;}
+    .service-block.reverse > *{direction:ltr;}
+    .service-label{font-family:var(--mono);font-size:0.7rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;display:flex;align-items:center;gap:0.4rem;}
+    .service-label::before{content:'//';opacity:0.5;}
+    .service-block h2{font-size:2rem;font-weight:900;letter-spacing:-0.03em;color:var(--navy);margin-bottom:1rem;line-height:1.1;}
+    .service-block p{font-size:0.95rem;color:#3a5a70;line-height:1.85;margin-bottom:1.25rem;}
+    .service-block p:last-of-type{margin-bottom:1.5rem;}
+    .feature-list{display:flex;flex-direction:column;gap:0.65rem;margin-bottom:1.75rem;}
+    .feature-item{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.85rem;color:var(--muted);line-height:1.5;}
+    .feature-check{width:18px;height:18px;min-width:18px;background:var(--teal-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+    .feature-check svg{width:10px;height:10px;}
+    .service-tags{display:flex;gap:0.4rem;flex-wrap:wrap;}
+    .stag{font-size:0.67rem;font-weight:600;color:#0093A8;background:#E6F9FB;padding:0.2rem 0.55rem;border-radius:3px;font-family:var(--mono);}
+
+    /* SERVICE VISUAL PANEL */
+    .service-visual{background:var(--navy);border-radius:16px;padding:2rem;position:relative;overflow:hidden;}
+    .svc-panel-glow{position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,180,204,0.25) 0%,transparent 70%);}
+    .svc-panel-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;position:relative;z-index:1;}
+    .svc-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:relative;z-index:1;}
+    .svc-stat{background:rgba(255,255,255,0.04);border:1px solid rgba(0,180,204,0.2);border-radius:10px;padding:1.1rem;}
+    .svc-stat-num{font-size:1.75rem;font-weight:900;color:var(--teal-light);letter-spacing:-0.04em;}
+    .svc-stat-label{font-size:0.68rem;color:rgba(255,255,255,0.35);font-family:var(--mono);margin-top:0.25rem;text-transform:uppercase;letter-spacing:0.05em;line-height:1.4;}
+    .svc-process{margin-top:1.25rem;position:relative;z-index:1;}
+    .svc-process-item{display:flex;align-items:center;gap:0.75rem;padding:0.65rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .svc-process-item:last-child{border-bottom:none;}
+    .svc-process-dot{width:8px;height:8px;min-width:8px;background:var(--teal);border-radius:50%;}
+    .svc-process-text{font-size:0.78rem;color:rgba(255,255,255,0.5);font-family:var(--mono);}
+    .svc-process-text strong{color:rgba(255,255,255,0.85);font-weight:600;}
+
+    /* COMPARE TABLE */
+    .compare-section{background:var(--cream2);padding:5rem 0;border-top:1px solid #E8DDD0;border-bottom:1px solid #E8DDD0;}
+    .compare-table{width:100%;border-collapse:collapse;margin-top:3rem;}
+    .compare-table th{text-align:left;font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);padding:0.75rem 1rem;border-bottom:2px solid #E8DDD0;}
+    .compare-table th:first-child{width:40%;}
+    .compare-table th.highlight{color:var(--teal);}
+    .compare-table td{padding:0.9rem 1rem;font-size:0.85rem;border-bottom:1px solid #F0EAE0;vertical-align:middle;}
+    .compare-table tr:last-child td{border-bottom:none;}
+    .compare-table td:first-child{font-weight:600;color:var(--navy);}
+    .compare-table td.muted{color:var(--muted);}
+    .compare-table td.highlight{color:var(--teal);font-weight:600;font-family:var(--mono);}
+    .chk-yes{color:#6ee7b7;font-size:1.1rem;}
+    .chk-no{color:#5A8A9F;opacity:0.4;font-size:1.1rem;}
+
+    /* CTA */
+    .cta-section{background:var(--navy);padding:5rem 2.5rem;position:relative;overflow:hidden;}
+    .cta-bg-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(circle,rgba(0,180,204,0.15) 0%,transparent 70%);}
+    .cta-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+    .cta-sparkle{font-size:1.5rem;display:block;margin-bottom:1rem;opacity:0.5;letter-spacing:1rem;}
+    .cta-inner h2{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#fff;margin-bottom:0.75rem;}
+    .cta-inner p{font-size:0.9rem;color:rgba(255,255,255,0.5);margin-bottom:2rem;font-family:var(--mono);}
+    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:800;font-size:1rem;padding:0.9rem 2.25rem;border-radius:6px;text-decoration:none;display:inline-block;}
+    .btn-outline{background:transparent;color:#fff;font-weight:700;font-size:0.9rem;padding:0.9rem 2rem;border-radius:6px;text-decoration:none;display:inline-block;border:1.5px solid rgba(255,255,255,0.25);font-family:var(--mono);}
+    .btn-outline:hover{border-color:var(--teal);color:var(--teal);}
+
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.05);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+
+    /* MOBILE */
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .hero{padding:3.5rem 1.25rem 6rem;}
+      .hero h1{font-size:2.4rem;}
+      .wrap{padding:0 1.25rem;}
+      .services-section{padding:3rem 0;}
+      .service-block{grid-template-columns:1fr;gap:2rem;padding:3rem 0;}
+      .service-block.reverse{direction:ltr;}
+      .compare-section{padding:3rem 0;}
+      .compare-table th:nth-child(2),.compare-table td:nth-child(2){display:none;}
+      .section-heading{font-size:1.85rem;}
+      .cta-section{padding:3rem 1.25rem;}
+      .cta-inner h2{font-size:1.85rem;}
+      .cta-buttons{flex-direction:column;align-items:center;}
+      .btn-coral,.btn-outline{width:100%;text-align:center;}
+      .hero-waves svg{height:50px;}
+      .svc-stat-grid{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-mark">J</div>
+    <div class="nav-logo-text">Juno<span>Mktg</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="/services.html" class="active">services</a>
+    <a href="/#results">results</a>
+    <a href="/about.html">about</a>
+    <a href="/#pricing">pricing</a>
+  </div>
+  <a class="nav-cta" href="#cta">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/services.html" onclick="document.getElementById('mobileNav').classList.remove('open')">services</a>
+  <a href="/#results" onclick="document.getElementById('mobileNav').classList.remove('open')">results</a>
+  <a href="/about.html" onclick="document.getElementById('mobileNav').classList.remove('open')">about</a>
+  <a href="/#pricing" onclick="document.getElementById('mobileNav').classList.remove('open')">pricing</a>
+  <a href="#cta" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mobileNav').classList.remove('open')">get_a_free_audit()</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      Gold Coast · Treasure Coast
+    </div>
+    <h1>Everything your business needs to <em>dominate locally.</em></h1>
+    <p class="hero-sub">Six AI-powered services. One team. Built to get South Florida businesses more leads, more reviews, and more revenue — without the agency markup.</p>
+  </div>
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <g class="wave-path3"><path d="M0,40 C180,70 360,10 540,40 C720,70 900,10 1080,40 C1260,70 1440,10 1620,40 C1800,70 1980,10 2160,40 L2160,80 L0,80 Z" fill="rgba(0,180,204,0.15)"/></g>
+      <g class="wave-path2"><path d="M0,50 C160,20 320,65 480,45 C640,25 800,60 960,42 C1120,24 1280,62 1440,44 C1600,26 1760,60 1920,44 L1920,80 L0,80 Z" fill="rgba(0,180,204,0.25)"/></g>
+      <g class="wave-path1"><path d="M0,55 C120,35 240,70 360,52 C480,34 600,68 720,52 C840,36 960,65 1080,52 C1200,39 1320,62 1440,52 C1560,42 1680,62 1800,52 L1800,80 L0,80 Z" fill="rgba(13,48,96,0.9)"/></g>
+    </svg>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-section">
+  <div class="wrap">
+
+    <!-- 01 Google Business Profile -->
+    <div class="service-block">
+      <div>
+        <div class="service-label">01 &nbsp;Google Business Profile</div>
+        <h2>Own the local map pack — where customers actually look.</h2>
+        <p>When someone searches "HVAC near me" or "best pool company in Boca Raton," the first thing they see is the Google map pack. Three businesses. If you're not there, you don't exist.</p>
+        <p>We take over your Google Business Profile completely — optimizing every category, attribute, and keyword so the algorithm surfaces you first. Then we keep it active with weekly posts, photos, Q&A responses, and service updates that signal to Google you're the real deal.</p>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Full profile audit and optimization</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Weekly AI-generated posts and photo uploads</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Q&A monitoring and response management</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Competitor gap analysis and category targeting</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Monthly ranking report with local search insights</div>
+        </div>
+        <div class="service-tags"><span class="stag">local_seo</span><span class="stag">google_maps</span><span class="stag">rankings</span></div>
+      </div>
+      <div class="service-visual">
+        <div class="svc-panel-glow"></div>
+        <div class="svc-panel-label">// typical results · 90 days</div>
+        <div class="svc-stat-grid">
+          <div class="svc-stat"><div class="svc-stat-num">#2</div><div class="svc-stat-label">avg local pack ranking</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">3.1×</div><div class="svc-stat-label">increase in profile views</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">+67%</div><div class="svc-stat-label">more direction requests</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">+40%</div><div class="svc-stat-label">more calls from search</div></div>
+        </div>
+        <div class="svc-process">
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 1</strong> · Full audit + optimization</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 2</strong> · Posts + photos go live</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Month 1</strong> · Rankings begin moving</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Month 3</strong> · Map pack visibility</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 AI Ad Management -->
+    <div class="service-block reverse">
+      <div>
+        <div class="service-label">02 &nbsp;AI Ad Management</div>
+        <h2>Ads that find the right customer. Not just any customer.</h2>
+        <p>Most small business ad campaigns waste money targeting people who will never buy. We use AI to build hyper-local audiences, write dozens of ad variants, and let the algorithm find the combinations that convert — then double down on what works.</p>
+        <p>We manage Google Local Services Ads (the ones with the green "Google Guaranteed" badge) and Meta Ads across Facebook and Instagram. Both platforms, fully managed, optimized weekly with AI performance data.</p>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Google Local Services Ads setup and management</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Meta Ads (Facebook + Instagram) campaigns</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>AI-generated ad copy — 10+ variants tested per campaign</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Hyper-local audience targeting by zip code and service area</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Weekly bid optimization and budget reallocation</div>
+        </div>
+        <div class="service-tags"><span class="stag">google_lsa</span><span class="stag">meta_ads</span><span class="stag">ppc</span><span class="stag">ai_copy</span></div>
+      </div>
+      <div class="service-visual">
+        <div class="svc-panel-glow"></div>
+        <div class="svc-panel-label">// typical results · 60 days</div>
+        <div class="svc-stat-grid">
+          <div class="svc-stat"><div class="svc-stat-num">62%</div><div class="svc-stat-label">lower cost per lead vs agencies</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">+34%</div><div class="svc-stat-label">avg CTR improvement</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">12+</div><div class="svc-stat-label">ad variants tested per campaign</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">2×</div><div class="svc-stat-label">avg ROAS improvement</div></div>
+        </div>
+        <div class="svc-process">
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Day 1</strong> · Accounts setup + audiences built</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 1</strong> · Campaigns live, data collecting</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 3</strong> · AI optimization kicks in</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Month 2</strong> · Cost per lead drops significantly</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 AI Content Creation -->
+    <div class="service-block">
+      <div>
+        <div class="service-label">03 &nbsp;AI Content Creation</div>
+        <h2>Content that sounds like you — published while you sleep.</h2>
+        <p>Posting consistently to social media is one of the highest-ROI things a local business can do. But it's also the first thing that falls off when you're busy. We take it completely off your plate.</p>
+        <p>Our AI learns your brand voice, your services, and your local market — then generates posts, seasonal promos, and blog content that actually sounds human. Every piece is reviewed before it goes out. You approve or we publish on a schedule you set.</p>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>8–12 AI-written social posts per month</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Seasonal and local event promotions</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Monthly blog post for SEO and Google authority</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Brand voice guide built from your existing content</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Scheduled publishing across Facebook, Instagram, and Google</div>
+        </div>
+        <div class="service-tags"><span class="stag">social</span><span class="stag">blog</span><span class="stag">brand_voice</span><span class="stag">seo</span></div>
+      </div>
+      <div class="service-visual">
+        <div class="svc-panel-glow"></div>
+        <div class="svc-panel-label">// what's included monthly</div>
+        <div class="svc-stat-grid">
+          <div class="svc-stat"><div class="svc-stat-num">8–12</div><div class="svc-stat-label">social posts per month</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">1–2</div><div class="svc-stat-label">blog posts for SEO</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">3</div><div class="svc-stat-label">platforms published to</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">100%</div><div class="svc-stat-label">human reviewed before publish</div></div>
+        </div>
+        <div class="svc-process">
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 1</strong> · Brand voice guide created</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 2</strong> · Content calendar drafted</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 3</strong> · Posts go live on schedule</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Ongoing</strong> · Monthly refresh + seasonal content</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Review Automation -->
+    <div class="service-block reverse">
+      <div>
+        <div class="service-label">04 &nbsp;Review Automation</div>
+        <h2>Turn every happy customer into a 5-star review. Automatically.</h2>
+        <p>73% of consumers say reviews are the #1 factor when choosing a local business. Most businesses have happy customers who just never get asked. We fix that with automated follow-up sequences that make leaving a review dead simple.</p>
+        <p>After every job or service, our system sends a personalized text or email asking for feedback. Happy customers get directed straight to Google. Unhappy ones get routed to you privately so you can resolve it before it becomes a public 1-star.</p>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Automated SMS and email review requests post-job</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Smart routing — happy customers to Google, unhappy ones to you</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>AI-written review response templates for your replies</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Review monitoring across Google, Yelp, and Facebook</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Monthly reputation score report</div>
+        </div>
+        <div class="service-tags"><span class="stag">reputation</span><span class="stag">automation</span><span class="stag">sms</span><span class="stag">google_reviews</span></div>
+      </div>
+      <div class="service-visual">
+        <div class="svc-panel-glow"></div>
+        <div class="svc-panel-label">// typical results · 90 days</div>
+        <div class="svc-stat-grid">
+          <div class="svc-stat"><div class="svc-stat-num">40+</div><div class="svc-stat-label">new reviews in first 3 months</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">4.8★</div><div class="svc-stat-label">avg rating after 90 days</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">28%</div><div class="svc-stat-label">review request conversion rate</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">0</div><div class="svc-stat-label">surprise 1-star reviews</div></div>
+        </div>
+        <div class="svc-process">
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Day 1</strong> · Automation setup + connected</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Week 1</strong> · First review requests go out</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Month 1</strong> · 10–15 new reviews typically</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Month 3</strong> · Rating visibly improves</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 Monthly Reporting -->
+    <div class="service-block">
+      <div>
+        <div class="service-label">05 &nbsp;Monthly Reporting</div>
+        <h2>You'll always know exactly what your marketing is doing.</h2>
+        <p>Most agencies send you a PDF full of graphs that don't tell you anything useful. We send you a plain-English report that answers one question: is this working?</p>
+        <p>Every month you get a summary of leads generated, ad spend and return, reviews earned, ranking changes, and what we're doing next month. No jargon, no hiding behind vanity metrics. If something isn't performing, we tell you and we fix it.</p>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Plain-English monthly performance summary</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Lead count, source breakdown, and cost per lead</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Ad spend ROI and campaign performance</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Google ranking movement and review growth</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Next month's strategy and focus areas</div>
+        </div>
+        <div class="service-tags"><span class="stag">analytics</span><span class="stag">reporting</span><span class="stag">strategy</span></div>
+      </div>
+      <div class="service-visual">
+        <div class="svc-panel-glow"></div>
+        <div class="svc-panel-label">// every report includes</div>
+        <div class="svc-process" style="margin-top:0;">
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Leads</strong> · Total, source, and cost per lead</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Ads</strong> · Spend, clicks, CTR, and ROAS</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>SEO</strong> · Ranking changes and search visibility</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Reviews</strong> · New reviews and rating trend</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Content</strong> · Posts published and engagement</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Next steps</strong> · What we're doing next month</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 AI Strategy Sessions -->
+    <div class="service-block reverse">
+      <div>
+        <div class="service-label">06 &nbsp;AI Strategy Sessions</div>
+        <h2>A monthly call where we plan your next move together.</h2>
+        <p>Every month we get on a call to review what's working, what isn't, and what opportunities we're going after next. This isn't a status update call — it's a working session where we make decisions about your business.</p>
+        <p>We bring AI-powered competitor analysis, market trend data, and platform insights to every call. You bring your goals. Together we build a plan that keeps you ahead of whoever's trying to take your market share.</p>
+        <div class="feature-list">
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>60-minute monthly strategy call</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>AI competitor analysis and market positioning</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>New AI tool recommendations specific to your business</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Seasonal campaign planning and promo calendar</div>
+          <div class="feature-item"><div class="feature-check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>Priority support between calls via email or text</div>
+        </div>
+        <div class="service-tags"><span class="stag">strategy</span><span class="stag">consulting</span><span class="stag">ai</span><span class="stag">growth</span></div>
+      </div>
+      <div class="service-visual">
+        <div class="svc-panel-glow"></div>
+        <div class="svc-panel-label">// included in scale plan</div>
+        <div class="svc-stat-grid">
+          <div class="svc-stat"><div class="svc-stat-num">60</div><div class="svc-stat-label">min monthly strategy call</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">24hr</div><div class="svc-stat-label">priority email response time</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">∞</div><div class="svc-stat-label">questions between calls</div></div>
+          <div class="svc-stat"><div class="svc-stat-num">1</div><div class="svc-stat-label">dedicated point of contact</div></div>
+        </div>
+        <div class="svc-process">
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Review</strong> · Last month's performance</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Analyze</strong> · Competitor moves + market shifts</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Plan</strong> · Next month's priorities</div></div>
+          <div class="svc-process-item"><div class="svc-process-dot"></div><div class="svc-process-text"><strong>Execute</strong> · We handle everything after the call</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- COMPARE -->
+<div class="compare-section">
+  <div class="wrap">
+    <div class="section-eyebrow">why juno</div>
+    <h2 class="section-heading">How we stack up.</h2>
+    <p class="section-sub">See how Juno Mktg compares to hiring a traditional agency or trying to do it yourself.</p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="highlight">Juno Mktg</th>
+          <th>Traditional Agency</th>
+          <th>DIY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Monthly cost</td><td class="highlight">$499–$1,499</td><td class="muted">$2,500–$8,000+</td><td class="muted">$0 + your time</td></tr>
+        <tr><td>Setup fee</td><td class="highlight">$0</td><td class="muted">$1,000–$5,000</td><td class="muted">$0</td></tr>
+        <tr><td>Contract required</td><td class="highlight">None</td><td class="muted">6–12 months</td><td class="muted">None</td></tr>
+        <tr><td>AI-powered tools</td><td class="highlight">✦ Yes</td><td class="muted">Rarely</td><td class="muted">Maybe</td></tr>
+        <tr><td>Local market expertise</td><td class="highlight">✦ Gold & Treasure Coast</td><td class="muted">Generic</td><td class="muted">Yours</td></tr>
+        <tr><td>Time to first results</td><td class="highlight">2–4 weeks</td><td class="muted">60–90 days</td><td class="muted">Months</td></tr>
+        <tr><td>Monthly reporting</td><td class="highlight">✦ Plain-English</td><td class="muted">PDF vanity metrics</td><td class="muted">You track it</td></tr>
+        <tr><td>Dedicated contact</td><td class="highlight">✦ Direct access</td><td class="muted">Account manager</td><td class="muted">You</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section" id="cta">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner">
+    <span class="cta-sparkle">✦ ✦ ✦</span>
+    <h2>Ready to put these to work for your business?</h2>
+    <p>free 30-min strategy call · no pitch · no pressure · real conversation</p>
+    <div class="cta-buttons">
+      <a class="btn-coral" href="https://calendly.com" target="_blank">Book a Free Call</a>
+      <a class="btn-outline" href="mailto:hello@junomktg.com">Send Us a Message</a>
+    </div>
+  </div>
+</div>
+
+<footer>juno_marketing.init() · gold_coast + treasure_coast · <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+
+</body>
+</html>
