@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Juno Mktg · AI Marketing · Gold Coast & Treasure Coast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;}
+    :root{
+      --teal:#00B4CC;
+      --teal-light:#33C4D9;
+      --teal-pale:#E6F9FB;
+      --cream:#FFFFFF;
+      --cream2:#F5F5F5;
+      --navy:#0A2540;
+      --navy2:#0D3060;
+      --navy3:#164080;
+      --muted:#5A8A9F;
+      --coral:#E8735A;
+      --mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+    .nav-logo-mark{width:34px;height:34px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:0.75rem;color:#fff;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .hero{background:var(--navy);padding:6rem 2.5rem 7rem;position:relative;overflow:hidden;}
+    .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .hero-bg-glow{position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,180,204,0.2) 0%,transparent 70%);z-index:1;}
+    .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:var(--teal-light);font-size:0.72rem;font-weight:600;padding:0.35rem 0.9rem;border-radius:4px;margin-bottom:1.75rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .eyebrow-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .hero h1{font-size:3.5rem;font-weight:900;line-height:1.05;letter-spacing:-0.04em;color:#fff;margin-bottom:1.25rem;max-width:700px;}
+    .hero h1 em{font-style:normal;color:var(--teal);}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:520px;}
+    .hero-waves{position:absolute;bottom:0;left:0;width:100%;overflow:hidden;line-height:0;z-index:3;}
+    .hero-waves svg{display:block;width:100%;height:80px;}
+    @keyframes wave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    @keyframes wave2{0%{transform:translateX(0);}100%{transform:translateX(50%);}}
+    @keyframes wave3{0%{transform:translateX(-50%);}100%{transform:translateX(0%);}}
+    .wave-path1{animation:wave1 12s linear infinite;}
+    .wave-path2{animation:wave2 9s linear infinite;}
+    .wave-path3{animation:wave3 15s linear infinite;}
+    .contact-wrap{padding:5rem 0;background:var(--cream);}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .contact-options{display:flex;flex-direction:column;gap:1.5rem;}
+    .contact-option{background:#fff;border:1px solid #E8DDD0;border-radius:14px;padding:1.75rem;display:flex;gap:1.25rem;align-items:flex-start;transition:border-color 0.2s;}
+    .contact-option:hover{border-color:var(--teal);}
+    .contact-option.featured{background:var(--navy);border-color:var(--teal);}
+    .opt-icon{width:46px;height:46px;min-width:46px;border-radius:10px;background:var(--teal-pale);display:flex;align-items:center;justify-content:center;}
+    .contact-option.featured .opt-icon{background:rgba(0,180,204,0.2);}
+    .opt-label{font-family:var(--mono);font-size:0.68rem;font-weight:600;color:var(--teal);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;}
+    .contact-option.featured .opt-label{color:var(--teal-light);}
+    .opt-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;}
+    .contact-option.featured .opt-title{color:#fff;}
+    .opt-desc{font-size:0.82rem;color:var(--muted);line-height:1.65;}
+    .contact-option.featured .opt-desc{color:rgba(255,255,255,0.45);}
+    .opt-link{display:inline-flex;align-items:center;gap:0.4rem;margin-top:0.85rem;font-size:0.82rem;font-weight:700;color:var(--teal);text-decoration:none;font-family:var(--mono);}
+    .opt-link:hover{color:var(--teal-light);}
+    .expect-panel{background:var(--navy2);border-radius:14px;padding:2rem;border:1px solid rgba(0,180,204,0.2);}
+    .expect-label{font-family:var(--mono);font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;}
+    .expect-steps{display:flex;flex-direction:column;gap:0;}
+    .expect-step{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .expect-step:last-child{border-bottom:none;}
+    .step-num{width:28px;height:28px;min-width:28px;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--teal);margin-top:2px;}
+    .step-body strong{display:block;font-size:0.88rem;font-weight:700;color:#fff;margin-bottom:0.2rem;}
+    .step-body p{font-size:0.78rem;color:rgba(255,255,255,0.4);line-height:1.6;font-family:var(--mono);}
+    .expect-note{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(0,180,204,0.15);font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.25);line-height:1.6;}
+    .expect-note span{color:var(--teal);font-weight:600;}
+    .faq-wrap{background:var(--cream2);padding:5rem 0;border-top:1px solid #E8DDD0;}
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:3rem;}
+    .faq-item{background:#fff;border:1px solid #E8DDD0;border-radius:12px;padding:1.5rem;}
+    .faq-q{font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+    .faq-a{font-size:0.82rem;color:var(--muted);line-height:1.7;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'✦';font-size:0.7rem;}
+    .section-heading{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:var(--navy);margin-bottom:1rem;}
+    .section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:560px;}
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.05);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .hero{padding:3.5rem 1.25rem 6rem;}
+      .hero h1{font-size:2.4rem;}
+      .wrap{padding:0 1.25rem;}
+      .contact-wrap,.faq-wrap{padding:3rem 0;}
+      .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+      .faq-grid{grid-template-columns:1fr;}
+      .section-heading{font-size:1.85rem;}
+      .hero-waves svg{height:50px;}
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-mark">J</div>
+    <div class="nav-logo-text">Juno<span>Mktg</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="/services.html">services</a>
+    <a href="/about.html">about</a>
+    <a href="/contact.html" class="active">contact</a>
+  </div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/services.html" onclick="document.getElementById('mobileNav').classList.remove('open')">services</a>
+  <a href="/about.html" onclick="document.getElementById('mobileNav').classList.remove('open')">about</a>
+  <a href="/contact.html" onclick="document.getElementById('mobileNav').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mobileNav').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="eyebrow-dot"></div>Gold Coast · Treasure Coast</div>
+    <h1>Let's talk about <em>growing your business.</em></h1>
+    <p class="hero-sub">Book a free 30-minute strategy call or send us a message. No pitch, no pressure — just a real conversation about what's holding your marketing back.</p>
+  </div>
+  <div class="hero-waves"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><g class="wave-path3"><path d="M0,40 C180,70 360,10 540,40 C720,70 900,10 1080,40 C1260,70 1440,10 1620,40 C1800,70 1980,10 2160,40 L2160,80 L0,80 Z" fill="rgba(0,180,204,0.15)"/></g><g class="wave-path2"><path d="M0,50 C160,20 320,65 480,45 C640,25 800,60 960,42 C1120,24 1280,62 1440,44 C1600,26 1760,60 1920,44 L1920,80 L0,80 Z" fill="rgba(0,180,204,0.25)"/></g><g class="wave-path1"><path d="M0,55 C120,35 240,70 360,52 C480,34 600,68 720,52 C840,36 960,65 1080,52 C1200,39 1320,62 1440,52 C1560,42 1680,62 1800,52 L1800,80 L0,80 Z" fill="rgba(13,48,96,0.9)"/></g></svg></div>
+</div>
+<div class="contact-wrap"><div class="wrap"><div class="contact-grid">
+<div class="contact-options">
+  <div class="contact-option featured">
+    <div class="opt-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="14" rx="2" stroke="#00B4CC" stroke-width="1.5"/><path d="M2 8l9 6 9-6" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div><div class="opt-label">// fastest response</div><div class="opt-title">Send Us a Message</div><p class="opt-desc">Drop us a message and we'll get back to you within one business day. Tell us about your business and what you're looking to improve.</p><a class="opt-link" href="mailto:hello@junomktg.com">hello@junomktg.com →</a></div>
+  </div>
+  <div class="contact-option">
+    <div class="opt-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="#00B4CC" stroke-width="1.5"/><path d="M7 3v3M15 3v3M3 9h16" stroke="#00B4CC" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+    <div><div class="opt-label">// free 30-min call</div><div class="opt-title">Book a Strategy Call</div><p class="opt-desc">Pick a time that works for you. We'll audit your current online presence live and walk you through exactly what we'd do differently.</p><a class="opt-link" href="https://calendly.com" target="_blank">Schedule a time →</a></div>
+  </div>
+  <div class="contact-option">
+    <div class="opt-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h14a2 2 0 012 2v8a2 2 0 01-2 2H7l-5 3V6a2 2 0 012-2z" stroke="#00B4CC" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+    <div><div class="opt-label">// quick questions</div><div class="opt-title">Text Us Directly</div><p class="opt-desc">Have a quick question? Text us directly. We respond to texts fast during business hours — no phone tag, no voicemail.</p><a class="opt-link" href="sms:+15615550100">Send a text →</a></div>
+  </div>
+</div>
+<div>
+  <div class="expect-panel">
+    <div class="expect-label">// what happens on the strategy call</div>
+    <div class="expect-steps">
+      <div class="expect-step"><div class="step-num">01</div><div class="step-body"><strong>We audit your Google presence live</strong><p>We pull up your Google Business Profile, local rankings, and competitor landscape right on the call so you can see exactly where you stand.</p></div></div>
+      <div class="expect-step"><div class="step-num">02</div><div class="step-body"><strong>We identify your biggest opportunities</strong><p>Based on your market and business type, we'll tell you the 2–3 things that would move the needle fastest for you specifically.</p></div></div>
+      <div class="expect-step"><div class="step-num">03</div><div class="step-body"><strong>We give you a clear plan</strong><p>You'll leave with a concrete set of next steps — whether you work with us or not. No fluff, no vague advice.</p></div></div>
+      <div class="expect-step"><div class="step-num">04</div><div class="step-body"><strong>Zero pressure, zero pitch</strong><p>If we're a good fit, great. If not, you still walk away with a better understanding of your marketing gaps.</p></div></div>
+    </div>
+    <div class="expect-note"><span>30 minutes</span> · Gold Coast & Treasure Coast businesses only · <span>no contracts</span> required to get started</div>
+  </div>
+</div>
+</div></div></div>
+<div class="faq-wrap"><div class="wrap">
+  <div class="section-eyebrow">common questions</div>
+  <h2 class="section-heading">Before you reach out.</h2>
+  <p class="section-sub">Quick answers to the things people usually ask us first.</p>
+  <div class="faq-grid">
+    <div class="faq-item"><div class="faq-q">How long until I see results?</div><div class="faq-a">Most clients see measurable movement in Google rankings and review counts within 30–60 days. Ad campaigns typically show lead improvements within the first 2–3 weeks once optimized.</div></div>
+    <div class="faq-item"><div class="faq-q">Do I need to sign a long-term contract?</div><div class="faq-a">No contracts, ever. We work month-to-month because we believe we should earn your business every month. Cancel any time with no penalties.</div></div>
+    <div class="faq-item"><div class="faq-q">What areas do you serve?</div><div class="faq-a">We focus exclusively on businesses in the Gold Coast and Treasure Coast — West Palm Beach, Boca Raton, Delray Beach, Jupiter, Stuart, Port St. Lucie, Vero Beach, and surrounding areas.</div></div>
+    <div class="faq-item"><div class="faq-q">What types of businesses do you work with?</div><div class="faq-a">Home services, professional services, restaurants, retail, and landscaping. If you're a local business that gets customers from Google or word of mouth, we can help.</div></div>
+    <div class="faq-item"><div class="faq-q">Is there a setup fee?</div><div class="faq-a">$0 setup fee on all plans. You pay the monthly rate and we get started — no onboarding charges, no hidden fees.</div></div>
+    <div class="faq-item"><div class="faq-q">What do I need to get started?</div><div class="faq-a">Just access to your Google Business Profile and a 30-minute onboarding call. We handle everything else — no tech knowledge required on your end.</div></div>
+  </div>
+</div></div>
+<footer>juno_marketing.init() · gold_coast + treasure_coast · <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>
