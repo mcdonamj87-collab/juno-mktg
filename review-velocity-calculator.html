@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Free review velocity calculator for South Florida small businesses. Find out how many Google reviews you need to outrank your competitor."/>
+  <title>Review Velocity Calculator &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#F5F5F5;color:#0A2540;}
+    :root{--teal:#00B4CC;--navy:#0A2540;--coral:#E8735A;--muted:#5A8A9F;--mono:'JetBrains Mono',monospace;}
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .tool-hero{background:var(--navy);padding:3.5rem 2.5rem 4rem;text-align:center;}
+    .tool-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);}
+    .tool-hero h1{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#fff;margin-bottom:0.75rem;}
+    .tool-hero p{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;}
+    .tool-wrap{max-width:680px;margin:0 auto;padding:3rem 2rem;}
+    .card{background:#fff;border-radius:16px;padding:2rem;margin-bottom:1.5rem;border:1px solid #E8DDD0;}
+    .card h2{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem;}
+    .input-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+    .input-group label{display:block;font-size:0.82rem;font-weight:600;color:var(--navy);margin-bottom:0.45rem;}
+    .input-group input{width:100%;padding:0.7rem 0.9rem;border:1.5px solid #E8DDD0;border-radius:8px;font-size:1rem;font-family:inherit;color:var(--navy);}
+    .input-group input:focus{outline:none;border-color:var(--teal);}
+    .input-group.full{grid-column:1/-1;}
+    .calc-btn{background:var(--teal);color:#fff;font-weight:700;font-size:1rem;padding:0.9rem 2rem;border-radius:8px;border:none;cursor:pointer;width:100%;font-family:var(--mono);margin-top:0.5rem;}
+    .result-box{background:var(--navy);border-radius:16px;padding:2rem;display:none;}
+    .result-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+    .result-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(0,180,204,0.2);border-radius:10px;padding:1.25rem;text-align:center;}
+    .result-num{font-size:2rem;font-weight:900;color:#33C4D9;letter-spacing:-0.04em;font-family:var(--mono);}
+    .result-lbl{font-size:0.68rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;font-family:var(--mono);}
+    .result-insight{background:rgba(255,255,255,0.04);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1.25rem;}
+    .result-insight p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.65;}
+    .result-insight strong{color:#fff;}
+    .result-cta{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:8px;text-decoration:none;display:inline-block;font-size:0.95rem;text-align:center;width:100%;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    @media(max-width:600px){.tool-hero{padding:2.5rem 1.25rem 3rem;}.tool-hero h1{font-size:1.85rem;}.tool-wrap{padding:2rem 1rem;}.input-row{grid-template-columns:1fr;}.result-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="17" fill="#00B4CC"/><circle cx="17" cy="17" r="6" fill="#0A2540"/><circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/><circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/></svg>
+    <div class="nav-logo-text">Juno<span>Mktg</span></div>
+  </a>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+</nav>
+
+<div class="tool-hero">
+  <div class="tool-eyebrow">Free Tool &middot; Reviews</div>
+  <h1>Review Velocity Calculator</h1>
+  <p>Enter your current Google stats and your top competitor&rsquo;s stats. We&rsquo;ll show you exactly how many reviews you need &mdash; and how long it will take to catch up.</p>
+</div>
+
+<div class="tool-wrap">
+  <div class="card">
+    <h2>Your Business</h2>
+    <div class="input-row">
+      <div class="input-group">
+        <label>Your current review count</label>
+        <input type="number" id="myReviews" placeholder="e.g. 18" min="0"/>
+      </div>
+      <div class="input-group">
+        <label>Your current star rating</label>
+        <input type="number" id="myRating" placeholder="e.g. 4.6" step="0.1" min="1" max="5"/>
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="input-group full">
+        <label>How many new reviews do you get per month (currently)?</label>
+        <input type="number" id="myVelocity" placeholder="e.g. 2" min="0"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Your Top Competitor</h2>
+    <div class="input-row">
+      <div class="input-group">
+        <label>Their review count</label>
+        <input type="number" id="theirReviews" placeholder="e.g. 65" min="0"/>
+      </div>
+      <div class="input-group">
+        <label>Their star rating</label>
+        <input type="number" id="theirRating" placeholder="e.g. 4.8" step="0.1" min="1" max="5"/>
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="input-group full">
+        <label>Estimated reviews they get per month</label>
+        <input type="number" id="theirVelocity" placeholder="e.g. 5" min="0"/>
+      </div>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="calculate()">Calculate How to Catch Up &rarr;</button>
+
+  <div class="result-box" id="resultBox" style="margin-top:1.5rem;">
+    <div class="result-grid" id="resultGrid"></div>
+    <div id="resultInsight"></div>
+    <a class="result-cta" href="/contact.html">Get Help Closing the Gap &rarr;</a>
+  </div>
+</div>
+
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+
+<script>
+function calculate() {
+  var mr = parseInt(document.getElementById('myReviews').value) || 0;
+  var mrt = parseFloat(document.getElementById('myRating').value) || 0;
+  var mv = parseInt(document.getElementById('myVelocity').value) || 0;
+  var tr = parseInt(document.getElementById('theirReviews').value) || 0;
+  var trt = parseFloat(document.getElementById('theirRating').value) || 0;
+  var tv = parseInt(document.getElementById('theirVelocity').value) || 0;
+
+  if (!mr && !tr) { alert('Please fill in at least your review count and your competitor\'s.'); return; }
+
+  var gap = Math.max(0, tr - mr);
+  var targetReviews = tr + 20;
+  var neededToWin = Math.max(0, targetReviews - mr);
+
+  var targetVelocity = Math.max(tv + 3, 10);
+  var monthsToWin = 0;
+  if (targetVelocity > mv) {
+    var myProj = mr;
+    var theirProj = tr;
+    for (var i = 1; i <= 24; i++) {
+      myProj += targetVelocity;
+      theirProj += tv;
+      if (myProj >= theirProj + 20) { monthsToWin = i; break; }
+    }
+    if (monthsToWin === 0) monthsToWin = 24;
+  } else {
+    monthsToWin = Math.ceil(neededToWin / Math.max(mv, 1));
+  }
+
+  var ratingGap = (trt - mrt).toFixed(1);
+  var ratingNote = '';
+  if (ratingGap > 0) ratingNote = 'Your competitor also has a ' + ratingGap + '-star rating advantage. Focus on collecting more positive reviews to raise your average.';
+  else if (mrt > trt) ratingNote = 'Your rating is actually higher than theirs &mdash; great. Volume is your main gap to close.';
+  else ratingNote = 'Your ratings are similar. Review count is your main competitive lever.';
+
+  var html = '<div class="result-stat"><div class="result-num">' + gap + '</div><div class="result-lbl">review gap right now</div></div>';
+  html += '<div class="result-stat"><div class="result-num">' + neededToWin + '</div><div class="result-lbl">reviews needed to win</div></div>';
+  html += '<div class="result-stat"><div class="result-num">' + targetVelocity + '</div><div class="result-lbl">reviews/month target</div></div>';
+  html += '<div class="result-stat"><div class="result-num">' + monthsToWin + '</div><div class="result-lbl">months to overtake them</div></div>';
+  document.getElementById('resultGrid').innerHTML = html;
+
+  var insight = '<div class="result-insight"><p>';
+  if (gap === 0) {
+    insight += 'You have a similar review count to your competitor. To pull ahead, you need to <strong>accelerate your review velocity</strong> to at least ' + targetVelocity + ' per month while maintaining your rating.';
+  } else {
+    insight += 'You need <strong>' + neededToWin + ' more reviews</strong> to overtake your competitor. At ' + targetVelocity + ' reviews per month &mdash; achievable with automated SMS requests after every job &mdash; you can close this gap in <strong>' + monthsToWin + ' months.</strong>';
+  }
+  insight += ' ' + ratingNote;
+  insight += '</p></div>';
+  document.getElementById('resultInsight').innerHTML = insight;
+
+  document.getElementById('resultBox').style.display = 'block';
+  document.getElementById('resultBox').scrollIntoView({behavior:'smooth', block:'start'});
+}
+</script>
+</body>
+</html>

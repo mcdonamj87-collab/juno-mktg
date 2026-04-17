@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="AI-powered local marketing for Jupiter, FL small businesses. Google profile management, ads, review automation, and local SEO. No contracts."/>
+  <title>AI Marketing for Jupiter, FL &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;line-height:1.7;}
+    :root{
+      --teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;
+      --cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;
+      --muted:#5A8A9F;--coral:#E8735A;--mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:34px;height:34px;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .wrap-narrow{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:600;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);font-family:var(--mono);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .wrap,.wrap-narrow{padding:0 1.25rem;}
+    }
+
+    .loc-hero{background:var(--navy);padding:5rem 2.5rem 6rem;position:relative;overflow:hidden;}
+    .loc-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .loc-hero-glow{position:absolute;top:-100px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(0,180,204,0.18) 0%,transparent 70%);z-index:1;}
+    .loc-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+    .loc-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.5rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .loc-eyebrow-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .loc-hero h1{font-size:3rem;font-weight:900;letter-spacing:-0.04em;color:#fff;line-height:1.05;margin-bottom:1.25rem;max-width:700px;}
+    .loc-hero h1 em{font-style:normal;color:var(--teal);}
+    .loc-hero p{font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:540px;margin-bottom:2rem;}
+    .loc-hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+    .loc-stats{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);}
+    .loc-stat-num{font-size:1.75rem;font-weight:900;color:#fff;letter-spacing:-0.03em;}
+    .loc-stat-label{font-size:0.68rem;color:rgba(255,255,255,0.35);font-family:var(--mono);text-transform:uppercase;letter-spacing:0.06em;margin-top:3px;}
+    .industries-section{padding:5rem 0;background:#fff;}
+    .industries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem;}
+    .industry-card{border:1px solid #E8DDD0;border-radius:12px;padding:1.5rem;}
+    .industry-card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+    .industry-card p{font-size:0.82rem;color:var(--muted);line-height:1.65;}
+    .ind-tag{display:inline-block;font-size:0.65rem;font-weight:600;color:#0093A8;background:#E6F9FB;padding:0.15rem 0.45rem;border-radius:3px;font-family:var(--mono);margin-bottom:0.75rem;}
+    .why-section{padding:5rem 0;background:var(--cream2);border-top:1px solid #E8DDD0;}
+    .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2.5rem;}
+    .why-list{display:flex;flex-direction:column;gap:1.25rem;}
+    .why-item{display:flex;gap:1rem;align-items:flex-start;}
+    .why-dot{width:8px;height:8px;min-width:8px;background:var(--teal);border-radius:50%;margin-top:6px;}
+    .why-item strong{display:block;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:3px;}
+    .why-item p{font-size:0.85rem;color:var(--muted);line-height:1.65;}
+    .why-panel{background:var(--navy);border-radius:16px;padding:2rem;}
+    .why-panel-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;}
+    .result-row{display:flex;justify-content:space-between;align-items:center;padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .result-row:last-child{border-bottom:none;}
+    .result-label{font-size:0.82rem;color:rgba(255,255,255,0.5);}
+    .result-val{font-size:0.9rem;font-weight:700;color:#33C4D9;font-family:var(--mono);}
+    .services-section{padding:5rem 0;background:#fff;}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem;}
+    .svc-card{background:var(--cream2);border:1px solid #E8DDD0;border-radius:10px;padding:1.25rem;}
+    .svc-card h3{font-size:0.9rem;font-weight:700;color:var(--navy);margin-bottom:0.35rem;}
+    .svc-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .cta-section{background:var(--teal);padding:4rem 2.5rem;text-align:center;}
+    .cta-section h2{font-size:2.25rem;font-weight:900;letter-spacing:-0.04em;color:#fff;margin-bottom:0.75rem;}
+    .cta-section p{font-size:0.9rem;color:rgba(255,255,255,0.75);margin-bottom:2rem;font-family:var(--mono);}
+    @media(max-width:768px){
+      .loc-hero{padding:3.5rem 1.25rem 5rem;}
+      .loc-hero h1{font-size:2.2rem;}
+      .loc-stats{gap:1.5rem;}
+      .industries-grid,.services-grid{grid-template-columns:1fr 1fr;}
+      .why-grid{grid-template-columns:1fr;gap:2rem;}
+      .cta-section{padding:3rem 1.25rem;}
+      .cta-section h2{font-size:1.85rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#00B4CC"/>
+  <circle cx="17" cy="17" r="6" fill="#0A2540"/>
+  <circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/>
+</svg><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links"><a href="/services.html">services</a><a href="/about.html">about</a><a href="/contact.html">contact</a></div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mn">
+  <a href="/services.html" onclick="document.getElementById('mn').classList.remove('open')">services</a><a href="/about.html" onclick="document.getElementById('mn').classList.remove('open')">about</a><a href="/contact.html" onclick="document.getElementById('mn').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mn').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="loc-hero">
+  <div class="loc-hero-bg"></div><div class="loc-hero-glow"></div>
+  <div class="loc-hero-inner">
+    <div class="loc-eyebrow"><div class="loc-eyebrow-dot"></div>Jupiter, Florida</div>
+    <h1>AI marketing for <em>Jupiter</em> businesses that want to grow.</h1>
+    <p>Jupiter is one of South Florida&rsquo;s most desirable communities &mdash; and one of its most competitive local markets. We help Jupiter businesses win the searches that turn into real customers.</p>
+    <div class="loc-hero-actions">
+      <a class="btn-coral" href="/contact.html">Get a Free Jupiter Audit</a>
+      <a class="btn-outline" href="/services.html">See How It Works</a>
+    </div>
+    <div class="loc-stats">
+      <div><div class="loc-stat-num">3&times;</div><div class="loc-stat-label">avg lead increase</div></div>
+      <div><div class="loc-stat-num">$0</div><div class="loc-stat-label">setup fee</div></div>
+      <div><div class="loc-stat-num">30 days</div><div class="loc-stat-label">to first results</div></div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;width:100%;overflow:hidden;line-height:0;z-index:3;"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:60px;"><path d="M0,40 C360,70 720,10 1080,40 C1260,55 1440,25 1440,40 L1440,60 L0,60 Z" fill="rgba(13,48,96,0.9)"/></svg></div>
+</div>
+
+<div class="industries-section"><div class="wrap">
+  <div class="section-eyebrow">who we serve in Jupiter</div>
+  <h2 style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;color:var(--navy);margin-bottom:0.5rem;">The businesses we help most in Jupiter.</h2>
+  <p style="font-size:1rem;color:var(--muted);max-width:560px;">AI-powered marketing built around how Jupiter customers actually search, review, and hire local businesses.</p>
+  <div class="industries-grid"><div class="industry-card">
+      <div class="ind-tag">home_services</div>
+      <h3>Home Services &amp; HVAC</h3>
+      <p>Jupiter homeowners expect quality and professionalism. Your Google presence needs to match what you deliver.</p>
+    </div><div class="industry-card">
+      <div class="ind-tag">marine</div>
+      <h3>Marine &amp; Boating</h3>
+      <p>Jupiter&rsquo;s boating community is loyal. Reviews, local SEO, and social content build the reputation that earns referrals.</p>
+    </div><div class="industry-card">
+      <div class="ind-tag">health</div>
+      <h3>Fitness &amp; Wellness</h3>
+      <p>Jupiter&rsquo;s health-conscious community is an ideal market for gyms, studios, and wellness practitioners.</p>
+    </div><div class="industry-card">
+      <div class="ind-tag">restaurant</div>
+      <h3>Restaurants</h3>
+      <p>From Harbourside to Indiantown Road, Jupiter restaurants need consistent Google presence to stay full.</p>
+    </div><div class="industry-card">
+      <div class="ind-tag">pool_service</div>
+      <h3>Pool &amp; Outdoor Living</h3>
+      <p>Outdoor living is central to Jupiter life. Pool, landscaping, and outdoor kitchen companies win big with local SEO.</p>
+    </div><div class="industry-card">
+      <div class="ind-tag">real_estate</div>
+      <h3>Real Estate Adjacent</h3>
+      <p>Staging, cleaning, moving, inspection &mdash; Jupiter&rsquo;s active real estate market creates constant service demand.</p>
+    </div></div>
+</div></div>
+
+<div class="why-section"><div class="wrap">
+  <div class="why-grid">
+    <div>
+      <div class="section-eyebrow">why juno in Jupiter</div>
+      <h2 style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;color:var(--navy);margin-bottom:1.5rem;">We know the Jupiter market.</h2>
+      <div class="why-list"><div class="why-item">
+      <div class="why-dot"></div>
+      <div><strong>Affluent, research-oriented buyers</strong><p>Jupiter residents spend more per transaction and research thoroughly. A strong digital presence turns their research into a call to you.</p></div>
+    </div><div class="why-item">
+      <div class="why-dot"></div>
+      <div><strong>Tequesta to Abacoa, we know the market</strong><p>Jupiter&rsquo;s distinct neighborhoods have different demographics. We target the right message to the right area.</p></div>
+    </div><div class="why-item">
+      <div class="why-dot"></div>
+      <div><strong>Less competition than Boca or WPB</strong><p>Jupiter is slightly underserved by good local marketing agencies &mdash; a major opportunity for businesses ready to move.</p></div>
+    </div></div>
+    </div>
+    <div class="why-panel">
+      <div class="why-panel-label">// typical client results in Jupiter</div>
+      <div class="result-row"><span class="result-label">Lead increase in 90 days</span><span class="result-val">3.1x average</span></div><div class="result-row"><span class="result-label">New Google reviews</span><span class="result-val">38+ in first 90 days</span></div><div class="result-row"><span class="result-label">Local pack ranking</span><span class="result-val">Top 3 within 45 days</span></div><div class="result-row"><span class="result-label">Monthly ad cost savings</span><span class="result-val">61% vs agencies</span></div>
+    </div>
+  </div>
+</div></div>
+
+<div class="services-section"><div class="wrap">
+  <div class="section-eyebrow">what we do</div>
+  <h2 style="font-size:2rem;font-weight:900;letter-spacing:-0.03em;color:var(--navy);margin-bottom:0.5rem;">Everything a Jupiter business needs to win online.</h2>
+  <p style="font-size:1rem;color:var(--muted);max-width:540px;margin-bottom:0;">No contracts. No setup fee. Cancel any time.</p>
+  <div class="services-grid">
+    <div class="svc-card"><h3>Google Business Profile</h3><p>Full monthly management so you rank in the Jupiter local map pack.</p></div>
+    <div class="svc-card"><h3>AI Ad Management</h3><p>Google and Meta ads targeting Jupiter customers at the lowest cost per lead.</p></div>
+    <div class="svc-card"><h3>Review Automation</h3><p>Automated review requests after every job &mdash; building your Jupiter reputation on autopilot.</p></div>
+    <div class="svc-card"><h3>AI Content Creation</h3><p>Social posts and blog content written for the Jupiter market, published on schedule.</p></div>
+    <div class="svc-card"><h3>Local SEO</h3><p>Rank for "Jupiter [your service]" searches before your competitors even notice.</p></div>
+    <div class="svc-card"><h3>Monthly Reporting</h3><p>Plain-English reports showing exactly what your Jupiter marketing is producing.</p></div>
+  </div>
+</div></div>
+
+<div class="cta-section">
+  <h2>Ready to get more Jupiter customers?</h2>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html">Book Your Free Jupiter Audit</a>
+</div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>

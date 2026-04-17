@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How South Florida HVAC companies use AI marketing to get more calls, rank on Google Maps, and build 5-star reputations. Real examples and strategies."/>
+  <title>How South Florida HVAC Companies Are Using AI to Get More Calls &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;line-height:1.7;}
+    :root{
+      --teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;
+      --cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;
+      --muted:#5A8A9F;--coral:#E8735A;--mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:34px;height:34px;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .wrap-narrow{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:600;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);font-family:var(--mono);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .wrap,.wrap-narrow{padding:0 1.25rem;}
+    }
+
+    .blog-hero{background:var(--navy);padding:4rem 2.5rem 5rem;position:relative;overflow:hidden;}
+    .blog-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .blog-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+    .blog-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .blog-hero h1{font-size:2.75rem;font-weight:900;letter-spacing:-0.04em;color:#fff;line-height:1.05;margin-bottom:1rem;}
+    .blog-hero p.lead{font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1.5rem;}
+    .blog-meta{display:flex;gap:1.5rem;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.3);}
+    .blog-body{padding:4rem 0;}
+    .blog-content{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    .blog-content h2{font-size:1.65rem;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin:2.5rem 0 1rem;}
+    .blog-content h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:2rem 0 0.65rem;}
+    .blog-content p{font-size:1rem;color:#2a4a60;line-height:1.85;margin-bottom:1.25rem;}
+    .blog-content ul,.blog-content ol{margin:1rem 0 1.5rem 1.5rem;}
+    .blog-content li{font-size:0.95rem;color:#2a4a60;line-height:1.8;margin-bottom:0.4rem;}
+    .callout{background:var(--teal-pale);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .callout p{color:#0a3a4a;margin:0;font-size:0.95rem;}
+    .tip-box{background:var(--navy);border-radius:12px;padding:1.5rem 2rem;margin:2rem 0;}
+    .tip-box h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;}
+    .tip-box p{color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;margin:0;}
+    .cta-inline{background:var(--teal);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-inline h3{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:0.5rem;}
+    .cta-inline p{font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:1.25rem;font-family:var(--mono);}
+    @media(max-width:768px){
+      .blog-hero{padding:3rem 1.25rem 4rem;}
+      .blog-hero h1{font-size:2rem;}
+      .blog-content{padding:0 1.25rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#00B4CC"/>
+  <circle cx="17" cy="17" r="6" fill="#0A2540"/>
+  <circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/>
+</svg><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links"><a href="/services.html">services</a><a href="/about.html">about</a><a href="/contact.html">contact</a></div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mn">
+  <a href="/services.html" onclick="document.getElementById('mn').classList.remove('open')">services</a><a href="/about.html" onclick="document.getElementById('mn').classList.remove('open')">about</a><a href="/contact.html" onclick="document.getElementById('mn').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mn').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="blog-hero">
+  <div class="blog-hero-bg"></div>
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow">Blog &middot; AI Marketing</div>
+    <h1>How South Florida HVAC Companies Are Using AI to Get More Calls</h1>
+    <p class="lead">The HVAC companies growing fastest in Palm Beach and Broward Counties aren&rsquo;t spending more on ads. They&rsquo;re using AI to work smarter &mdash; and their phones are ringing more because of it.</p>
+    <div class="blog-meta"><span>&#9201; 6 min read</span><span>Juno Mktg &middot; South Florida</span></div>
+  </div>
+</div>
+<div class="blog-body"><div class="blog-content">
+<h2>South Florida HVAC is a hypercompetitive market</h2>
+<p>There are hundreds of HVAC companies competing for the same homeowners across Palm Beach, Broward, and Martin Counties. Every one of them runs Google ads, posts occasionally on Facebook, and hopes for referrals. Most of them are stuck in the same cycle: busy in summer, slow in winter, constantly chasing the next job.</p>
+<p>The companies breaking out of that cycle are doing something different. They&rsquo;re using AI-powered marketing tools that let them move faster, write better content, and optimize their ad spend in ways that a small operation simply couldn&rsquo;t do manually five years ago.</p>
+<h2>Where AI makes the biggest difference for HVAC</h2>
+<h3>Google Business Profile management</h3>
+<p>When a Boca Raton homeowner&rsquo;s AC goes out at 3pm on a July afternoon, they grab their phone and search "AC repair near me." The first three results in the map pack get almost all the calls. Everything else gets nothing.</p>
+<p>AI tools can generate consistent Google Business Profile posts, optimize your business description with the right search keywords, and flag opportunities to improve your ranking &mdash; automatically, every week. HVAC companies using these tools are appearing in the local pack for more searches than their competitors who are managing their profiles manually.</p>
+<h3>Review generation at scale</h3>
+<p>The HVAC companies with 80+ Google reviews didn&rsquo;t get them by asking every customer individually. They automated it. After every completed job, a text message goes out with a direct link to their Google review page. The customer taps once, leaves a review, done. This process runs in the background while the owner focuses on the work.</p>
+<div class="callout"><p><strong>Real example:</strong> An HVAC company in West Palm Beach went from 14 Google reviews to 67 in four months using automated SMS review requests. Their call volume increased 41% over the same period, and they attribute most of it to the ranking improvement driven by review count.</p></div>
+<h3>AI-written ad copy that actually converts</h3>
+<p>Writing effective Google and Meta ad copy is harder than it looks. The right headline, the right benefit focus, the right call to action &mdash; it takes testing to figure out what works for your specific market. AI can generate 10&ndash;20 variations of an ad, run them simultaneously, and identify the winners in a fraction of the time it takes to do manually.</p>
+<p>For HVAC companies specifically, the most effective ad copy in South Florida tends to focus on speed ("Same day service"), trust ("Licensed and insured"), and local knowledge ("Serving Palm Beach County for 12 years"). AI can test all of these angles simultaneously instead of one at a time.</p>
+<h3>Seasonal content that stays ahead of demand</h3>
+<p>South Florida HVAC demand spikes predictably &mdash; early summer when the heat ramps up, and again after hurricane season. AI content tools can plan and schedule posts and blog content weeks in advance, so when homeowners start searching for AC tune-ups in April, your content is already ranking.</p>
+<h2>What it actually costs vs. what you get back</h2>
+<p>The math on AI marketing for HVAC is compelling. A properly run AI marketing setup for a South Florida HVAC company costs a fraction of a full-service agency retainer &mdash; and delivers comparable (often better) results because it&rsquo;s built around the specific dynamics of the local market.</p>
+<p>One residential AC installation job in South Florida averages $3,500&ndash;$8,000. If AI-driven marketing improvements bring in two additional installs per month, the return on investment is immediate and obvious.</p>
+<div class="tip-box"><h4>// Where to start</h4><p>The highest-leverage first move for an HVAC company is Google Business Profile optimization + review automation. These two things together typically produce a measurable increase in map pack visibility within 60 days. Everything else &mdash; ads, content, social &mdash; builds on that foundation.</p></div>
+<h2>The competitive window is still open</h2>
+<p>Most South Florida HVAC companies are still marketing the way they did five years ago. The businesses that adopt AI-powered marketing now are building a lead that will be very hard for slower-moving competitors to close. In markets like Boca Raton, West Palm Beach, and Jupiter, the top 3 map pack positions tend to get locked up quickly once the right businesses optimize properly.</p>
+<p>The question isn&rsquo;t whether to use AI marketing. It&rsquo;s whether you do it before or after your competitor does.</p>
+<div class="cta-inline">
+  <h3>Want help putting this into practice?</h3>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html" style="display:inline-block;background:#E8735A;color:#fff;font-weight:700;padding:0.75rem 1.75rem;border-radius:6px;text-decoration:none;">Book a Free Audit</a>
+</div>
+</div></div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>

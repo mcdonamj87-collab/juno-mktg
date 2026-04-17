@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="5 essential online marketing steps for Boca Raton restaurants before running ads. Google profile, reviews, photos, and more for South Florida dining."/>
+  <title>5 Things Every Boca Raton Restaurant Should Do Online Before Spending on Ads &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;line-height:1.7;}
+    :root{
+      --teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;
+      --cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;
+      --muted:#5A8A9F;--coral:#E8735A;--mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:34px;height:34px;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .wrap-narrow{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:600;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);font-family:var(--mono);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .wrap,.wrap-narrow{padding:0 1.25rem;}
+    }
+
+    .blog-hero{background:var(--navy);padding:4rem 2.5rem 5rem;position:relative;overflow:hidden;}
+    .blog-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .blog-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+    .blog-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .blog-hero h1{font-size:2.75rem;font-weight:900;letter-spacing:-0.04em;color:#fff;line-height:1.05;margin-bottom:1rem;}
+    .blog-hero p.lead{font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1.5rem;}
+    .blog-meta{display:flex;gap:1.5rem;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.3);}
+    .blog-body{padding:4rem 0;}
+    .blog-content{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    .blog-content h2{font-size:1.65rem;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin:2.5rem 0 1rem;}
+    .blog-content h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:2rem 0 0.65rem;}
+    .blog-content p{font-size:1rem;color:#2a4a60;line-height:1.85;margin-bottom:1.25rem;}
+    .blog-content ul,.blog-content ol{margin:1rem 0 1.5rem 1.5rem;}
+    .blog-content li{font-size:0.95rem;color:#2a4a60;line-height:1.8;margin-bottom:0.4rem;}
+    .callout{background:var(--teal-pale);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .callout p{color:#0a3a4a;margin:0;font-size:0.95rem;}
+    .tip-box{background:var(--navy);border-radius:12px;padding:1.5rem 2rem;margin:2rem 0;}
+    .tip-box h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;}
+    .tip-box p{color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;margin:0;}
+    .cta-inline{background:var(--teal);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-inline h3{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:0.5rem;}
+    .cta-inline p{font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:1.25rem;font-family:var(--mono);}
+    @media(max-width:768px){
+      .blog-hero{padding:3rem 1.25rem 4rem;}
+      .blog-hero h1{font-size:2rem;}
+      .blog-content{padding:0 1.25rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#00B4CC"/>
+  <circle cx="17" cy="17" r="6" fill="#0A2540"/>
+  <circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/>
+</svg><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links"><a href="/services.html">services</a><a href="/about.html">about</a><a href="/contact.html">contact</a></div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mn">
+  <a href="/services.html" onclick="document.getElementById('mn').classList.remove('open')">services</a><a href="/about.html" onclick="document.getElementById('mn').classList.remove('open')">about</a><a href="/contact.html" onclick="document.getElementById('mn').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mn').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="blog-hero">
+  <div class="blog-hero-bg"></div>
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow">Blog &middot; Restaurant Marketing</div>
+    <h1>5 Things Every Boca Raton Restaurant Should Do Online Before Spending on Ads</h1>
+    <p class="lead">Boca Raton has one of the most competitive restaurant markets in South Florida. Before you hand money to Meta or Google, make sure these five things are locked in.</p>
+    <div class="blog-meta"><span>&#9201; 6 min read</span><span>Juno Mktg &middot; South Florida</span></div>
+  </div>
+</div>
+<div class="blog-body"><div class="blog-content">
+<h2>Why ads alone won&rsquo;t save a weak online presence</h2>
+<p>Boca Raton diners are sophisticated. Before they choose a restaurant &mdash; especially for a date night, a business lunch, or a special occasion &mdash; they research. They check Google reviews, look at photos, scroll through Instagram, and compare options. If they find your restaurant during that research phase and something looks off &mdash; old photos, few reviews, no response to complaints &mdash; they move on.</p>
+<p>Running ads that drive people to a weak online presence is expensive and ineffective. These five things cost almost nothing and make every dollar of future ad spend work significantly harder.</p>
+<h2>1. Claim and optimize your Google Business Profile</h2>
+<p>When someone searches "restaurants in Boca Raton" or "best Italian near Mizner Park," Google shows a map pack before any other results. The businesses in that pack get the majority of clicks and calls. Getting there requires a fully optimized Google Business Profile.</p>
+<p>For restaurants specifically, the most important fields are: your primary category (be specific &mdash; "Italian Restaurant" beats "Restaurant"), your hours (including holiday hours), your menu link, your photos (updated regularly), and your reservation link if you take them. Incomplete profiles rank lower and convert fewer viewers into diners.</p>
+<h2>2. Get your photo game up</h2>
+<p>Food photos are the #1 factor that drives restaurant discovery decisions. Potential diners are making a judgment about the quality and style of your restaurant based on a handful of images they see in 10 seconds. If your Google profile photos are dark, blurry, or years old &mdash; you&rsquo;re losing tables you&rsquo;ll never even know you lost.</p>
+<div class="callout"><p><strong>The minimum:</strong> 20 current, well-lit photos on your Google profile. Interior shots, exterior shots, your top 8&ndash;10 dishes, and photos of the dining experience (not just food). Update with new photos at least monthly.</p></div>
+<p>You don&rsquo;t need a professional photographer for every shot. A modern iPhone in good light produces perfectly usable food photos. Post new shots after you launch a seasonal menu, when you add a signature dish, or whenever the dining room looks particularly inviting.</p>
+<h2>3. Build your review count systematically</h2>
+<p>Boca diners read reviews obsessively. A restaurant with 200 reviews at 4.6 stars will outperform a restaurant with 30 reviews at 4.9 stars every time &mdash; because the volume signals that many people have had a good experience, not just a handful.</p>
+<p>The most effective approach for restaurants: train your staff to mention Google reviews at the end of positive dining experiences. "If you enjoyed tonight, we&rsquo;d really appreciate a Google review &mdash; it helps us a lot." Pair this with a table card or receipt QR code that links directly to your Google review page. Combine the two and you&rsquo;ll add 15&ndash;25 reviews per month without any additional marketing spend.</p>
+<h2>4. Respond to every review &mdash; especially the bad ones</h2>
+<p>In Boca Raton&rsquo;s competitive restaurant market, the way you handle criticism is a marketing signal. Potential diners read negative reviews and then read the response. A professional, empathetic, solution-oriented response to a 2-star review can actually increase conversions from that review page &mdash; because it demonstrates the character of your management team.</p>
+<div class="tip-box"><h4>// Response formula for bad restaurant reviews</h4><p>"We&rsquo;re sorry your experience wasn&rsquo;t what we wanted it to be. The [specific issue] is something we take seriously, and we&rsquo;d love the chance to make it right. Please reach out to [manager name] at [email/phone] and we&rsquo;ll take care of you. &mdash; [Owner/Manager name]"</p></div>
+<h2>5. Post on Instagram and Google weekly</h2>
+<p>Consistency matters more than quality on both platforms. One well-shot food photo posted every week outperforms three stunning photos posted once a month. The algorithm rewards regular posting, and so does customer memory. People see your posts, remember your restaurant, and come in when the craving hits.</p>
+<p>For restaurants specifically, the content that performs best is: new dish reveals, behind-the-scenes prep shots, seasonal specials, and anything that shows the dining atmosphere. User-generated content (reposting photos that customers tag you in) performs especially well because it&rsquo;s authentic social proof.</p>
+<h2>After these five: then run ads</h2>
+<p>Once your Google profile is dialed in, your review count is climbing, and your social presence is consistent &mdash; that&rsquo;s when paid advertising pays off. Google Local Services Ads for restaurants drive high-intent searchers directly to your profile. Meta Ads let you reach Boca Raton residents with specific demographics, income levels, and dining interests.</p>
+<p>But ads work because they drive people to research your restaurant. If that research phase &mdash; Google reviews, photos, social content &mdash; is weak, ads just accelerate the process of people finding your profile and moving on. Get the foundation right first.</p>
+<div class="cta-inline">
+  <h3>Want help putting this into practice?</h3>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html" style="display:inline-block;background:#E8735A;color:#fff;font-weight:700;padding:0.75rem 1.75rem;border-radius:6px;text-decoration:none;">Book a Free Audit</a>
+</div>
+</div></div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>

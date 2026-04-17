@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="How much should a West Palm Beach small business spend on marketing? Benchmarks, budget breakdowns, and strategy for Gold Coast local businesses."/>
+  <title>How Much Should a West Palm Beach Small Business Spend on Marketing? &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;line-height:1.7;}
+    :root{
+      --teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;
+      --cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;
+      --muted:#5A8A9F;--coral:#E8735A;--mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:34px;height:34px;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .wrap-narrow{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:600;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);font-family:var(--mono);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .wrap,.wrap-narrow{padding:0 1.25rem;}
+    }
+
+    .blog-hero{background:var(--navy);padding:4rem 2.5rem 5rem;position:relative;overflow:hidden;}
+    .blog-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .blog-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+    .blog-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .blog-hero h1{font-size:2.75rem;font-weight:900;letter-spacing:-0.04em;color:#fff;line-height:1.05;margin-bottom:1rem;}
+    .blog-hero p.lead{font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1.5rem;}
+    .blog-meta{display:flex;gap:1.5rem;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.3);}
+    .blog-body{padding:4rem 0;}
+    .blog-content{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    .blog-content h2{font-size:1.65rem;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin:2.5rem 0 1rem;}
+    .blog-content h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:2rem 0 0.65rem;}
+    .blog-content p{font-size:1rem;color:#2a4a60;line-height:1.85;margin-bottom:1.25rem;}
+    .blog-content ul,.blog-content ol{margin:1rem 0 1.5rem 1.5rem;}
+    .blog-content li{font-size:0.95rem;color:#2a4a60;line-height:1.8;margin-bottom:0.4rem;}
+    .callout{background:var(--teal-pale);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .callout p{color:#0a3a4a;margin:0;font-size:0.95rem;}
+    .tip-box{background:var(--navy);border-radius:12px;padding:1.5rem 2rem;margin:2rem 0;}
+    .tip-box h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;}
+    .tip-box p{color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;margin:0;}
+    .cta-inline{background:var(--teal);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-inline h3{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:0.5rem;}
+    .cta-inline p{font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:1.25rem;font-family:var(--mono);}
+    @media(max-width:768px){
+      .blog-hero{padding:3rem 1.25rem 4rem;}
+      .blog-hero h1{font-size:2rem;}
+      .blog-content{padding:0 1.25rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#00B4CC"/>
+  <circle cx="17" cy="17" r="6" fill="#0A2540"/>
+  <circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/>
+</svg><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links"><a href="/services.html">services</a><a href="/about.html">about</a><a href="/contact.html">contact</a></div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mn">
+  <a href="/services.html" onclick="document.getElementById('mn').classList.remove('open')">services</a><a href="/about.html" onclick="document.getElementById('mn').classList.remove('open')">about</a><a href="/contact.html" onclick="document.getElementById('mn').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mn').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="blog-hero">
+  <div class="blog-hero-bg"></div>
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow">Blog &middot; Marketing Strategy</div>
+    <h1>How Much Should a West Palm Beach Small Business Spend on Marketing?</h1>
+    <p class="lead">There&rsquo;s no universal answer &mdash; but there are proven benchmarks. Here&rsquo;s how to think about your marketing budget if you&rsquo;re a local business in West Palm Beach or the surrounding area.</p>
+    <div class="blog-meta"><span>&#9201; 6 min read</span><span>Juno Mktg &middot; South Florida</span></div>
+  </div>
+</div>
+<div class="blog-body"><div class="blog-content">
+<h2>The question every business owner eventually asks</h2>
+<p>You know you need to market your business. You&rsquo;ve probably tried a few things &mdash; some Facebook ads, a Yelp listing, maybe a mailer. But how much should you actually be spending, and on what? Is $500 a month enough? Is $3,000 too much? The honest answer is: it depends. But there are benchmarks that give you a smart starting point.</p>
+<h2>The standard marketing budget benchmark</h2>
+<p>The U.S. Small Business Administration recommends spending 7&ndash;8% of gross revenue on marketing if you&rsquo;re doing under $5 million in revenue and want to maintain your current position. If you&rsquo;re trying to grow aggressively, most marketing consultants recommend 10&ndash;15%.</p>
+<p>For a West Palm Beach service business doing $500,000 in annual revenue, that&rsquo;s $35,000&ndash;$75,000 per year, or roughly $2,900&ndash;$6,250 per month. For a smaller operation doing $200,000 a year, it&rsquo;s $14,000&ndash;$30,000 annually, or $1,200&ndash;$2,500 per month.</p>
+<div class="callout"><p><strong>Important caveat:</strong> These are starting benchmarks, not gospel. A business with a very strong referral network might need to spend less. A business in a hypercompetitive category (roofing, HVAC, personal injury law) might need to spend more to make an impact.</p></div>
+<h2>Where should West Palm Beach businesses spend their budget?</h2>
+<p>This depends on your business type, but here&rsquo;s a framework that works well for most local service businesses and restaurants in the West Palm Beach area:</p>
+<h3>Foundation first (before paid ads)</h3>
+<p>Before spending a dollar on advertising, make sure your Google Business Profile is fully optimized and your review count is respectable (30+ reviews, 4.5+ rating). This work typically costs less than a month of paid ads and improves the return on everything you do afterward. It&rsquo;s the most leveraged spend available to a local business.</p>
+<h3>Paid advertising breakdown</h3>
+<ul>
+  <li><strong>Google Local Services Ads:</strong> If you&rsquo;re in a qualifying category (HVAC, plumbing, cleaning, electrical), this is almost always your best first paid channel. Budget $500&ndash;$1,500/month depending on category competitiveness in WPB.</li>
+  <li><strong>Meta Ads (Facebook/Instagram):</strong> Excellent for brand awareness and retargeting in WPB&rsquo;s highly connected community. Budget $300&ndash;$800/month as a secondary channel.</li>
+  <li><strong>Google Search Ads:</strong> Works well for immediate-need services. Budget varies widely by category &mdash; competitive categories like roofing can cost $15&ndash;$30 per click in South Florida.</li>
+</ul>
+<h2>The hidden cost of not marketing</h2>
+<p>A lot of West Palm Beach small business owners hesitate to commit to marketing spend because it feels like a cost rather than an investment. But consider the math on the other side: if a well-executed Google Business Profile and review strategy produces three additional jobs per month for a home service business averaging $2,000 per job &mdash; that&rsquo;s $6,000 in additional monthly revenue from a $500/month investment. That&rsquo;s a 12x return.</p>
+<div class="tip-box"><h4>// How to think about marketing ROI</h4><p>Track where your leads come from. If you spend $800/month on ads and those ads produce 6 leads at an average job value of $1,500, that&rsquo;s $9,000 in revenue from $800 in spend. Most businesses who track this carefully find the ROI is much better than they expected &mdash; and the problem was attribution, not performance.</p></div>
+<h2>What West Palm Beach businesses are spending right now</h2>
+<p>Based on our experience working with Gold Coast businesses, here&rsquo;s what we typically see in the WPB market:</p>
+<ul>
+  <li>Solo operators and micro-businesses: $300&ndash;$800/month</li>
+  <li>Small businesses with 2&ndash;10 employees: $800&ndash;$2,500/month</li>
+  <li>Established businesses wanting to grow aggressively: $2,500&ndash;$6,000/month</li>
+</ul>
+<h2>The most important variable: consistency</h2>
+<p>Whatever budget you commit to, consistency matters more than the amount. A business that spends $600/month every month for 12 months will outperform a business that spends $3,000 for two months and then stops. Marketing compounds &mdash; reviews build, rankings improve, brand recognition grows &mdash; but only when it&rsquo;s done consistently over time.</p>
+<p>The businesses that win in West Palm Beach&rsquo;s local market aren&rsquo;t necessarily the ones with the biggest budgets. They&rsquo;re the ones who show up consistently, respond to customers, build their Google presence month after month, and treat marketing as an ongoing investment rather than a one-time expense.</p>
+<div class="cta-inline">
+  <h3>Want help putting this into practice?</h3>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html" style="display:inline-block;background:#E8735A;color:#fff;font-weight:700;padding:0.75rem 1.75rem;border-radius:6px;text-decoration:none;">Book a Free Audit</a>
+</div>
+</div></div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>

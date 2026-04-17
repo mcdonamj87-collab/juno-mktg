@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A free marketing checklist for South Florida small businesses. Get more leads without spending more money using Google, social media, and local SEO basics."/>
+  <title>The $0 Marketing Checklist for South Florida Small Businesses &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;line-height:1.7;}
+    :root{
+      --teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;
+      --cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;
+      --muted:#5A8A9F;--coral:#E8735A;--mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:34px;height:34px;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .wrap-narrow{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:600;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);font-family:var(--mono);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .wrap,.wrap-narrow{padding:0 1.25rem;}
+    }
+
+    .res-hero{background:var(--navy);padding:4rem 2.5rem 5rem;position:relative;overflow:hidden;}
+    .res-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .res-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+    .res-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .res-hero h1{font-size:2.75rem;font-weight:900;letter-spacing:-0.04em;color:#fff;line-height:1.05;margin-bottom:1rem;}
+    .res-hero p.lead{font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1.5rem;}
+    .res-meta{display:flex;gap:1.5rem;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.3);}
+    .res-body{padding:4rem 0;}
+    .res-content{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    .res-content h2{font-size:1.65rem;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin:2.5rem 0 1rem;}
+    .res-content h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:2rem 0 0.65rem;}
+    .res-content p{font-size:1rem;color:#2a4a60;line-height:1.85;margin-bottom:1.25rem;}
+    .res-content ul,.res-content ol{margin:1rem 0 1.5rem 1.5rem;}
+    .res-content li{font-size:0.95rem;color:#2a4a60;line-height:1.8;margin-bottom:0.4rem;}
+    .callout{background:var(--teal-pale);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .callout p{color:#0a3a4a;margin:0;font-size:0.95rem;}
+    .callout strong{color:var(--navy);}
+    .tip-box{background:var(--navy);border-radius:12px;padding:1.5rem 2rem;margin:2rem 0;}
+    .tip-box h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;}
+    .tip-box p{color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;margin:0;}
+    .step-list{display:flex;flex-direction:column;gap:1.5rem;margin:1.5rem 0 2rem;}
+    .step-item{display:flex;gap:1.25rem;align-items:flex-start;}
+    .step-num{width:32px;height:32px;min-width:32px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.75rem;font-weight:700;color:#fff;}
+    .step-item strong{display:block;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+    .step-item p{font-size:0.88rem;color:var(--muted);line-height:1.65;margin:0;}
+    .cta-inline{background:var(--teal);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-inline h3{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:0.5rem;}
+    .cta-inline p{font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:1.25rem;font-family:var(--mono);}
+    @media(max-width:768px){
+      .res-hero{padding:3rem 1.25rem 4rem;}
+      .res-hero h1{font-size:2rem;}
+      .res-content{padding:0 1.25rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#00B4CC"/>
+  <circle cx="17" cy="17" r="6" fill="#0A2540"/>
+  <circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/>
+</svg><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links"><a href="/services.html">services</a><a href="/about.html">about</a><a href="/contact.html">contact</a></div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mn">
+  <a href="/services.html" onclick="document.getElementById('mn').classList.remove('open')">services</a><a href="/about.html" onclick="document.getElementById('mn').classList.remove('open')">about</a><a href="/contact.html" onclick="document.getElementById('mn').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mn').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="res-hero">
+  <div class="res-hero-bg"></div>
+  <div class="res-hero-inner">
+    <div class="res-eyebrow">Resource Guide &middot; Getting Started</div>
+    <h1>The $0 Marketing Checklist for South Florida Small Businesses</h1>
+    <p class="lead">Before you spend a dollar on ads, there&rsquo;s a list of free things that will move the needle. Most South Florida business owners have skipped half of them.</p>
+    <div class="res-meta"><span>&#9201; 6 min read</span><span>Juno Mktg &middot; South Florida</span></div>
+  </div>
+</div>
+<div class="res-body"><div class="res-content">
+<h2>The free stuff actually works</h2>
+<p>Most small business owners think marketing means spending money on ads. And eventually, ads do matter. But there&rsquo;s a surprisingly long list of high-impact marketing actions that cost nothing &mdash; and most businesses haven&rsquo;t done them.</p>
+<p>If you&rsquo;re a home service company, restaurant, or local retailer in South Florida, completing this checklist before running a single ad will dramatically improve the return on anything you do spend.</p>
+<h2>Google Business Profile (highest priority)</h2>
+<div class="step-list">
+  <div class="step-item"><div class="step-num">1</div><div><strong>Claim and verify your Google Business Profile</strong><p>If you haven&rsquo;t done this, stop everything and do it now. Go to business.google.com. This is the single most important free marketing action available to a local business.</p></div></div>
+  <div class="step-item"><div class="step-num">2</div><div><strong>Choose the right primary category</strong><p>Your primary category determines what searches you show up for. "HVAC Contractor" is better than "Air Conditioning Repair" in most cases. Research what your top competitors use.</p></div></div>
+  <div class="step-item"><div class="step-num">3</div><div><strong>Fill out your business description with keywords</strong><p>Write 2&ndash;3 sentences that naturally include your service type and city. "We&rsquo;re a Boca Raton pool cleaning company serving Palm Beach County since 2010" is better than a generic description.</p></div></div>
+  <div class="step-item"><div class="step-num">4</div><div><strong>Upload at least 10 photos</strong><p>Jobs you&rsquo;ve completed, your team, your equipment, before/after shots. Businesses with 10+ photos get 35% more clicks than those with fewer.</p></div></div>
+  <div class="step-item"><div class="step-num">5</div><div><strong>Post an update this week</strong><p>A Google Business Profile post takes 5 minutes and signals to Google that your business is active. Post a tip, a completed job, or a seasonal promotion.</p></div></div>
+</div>
+<h2>Reviews</h2>
+<div class="step-list">
+  <div class="step-item"><div class="step-num">6</div><div><strong>Text your last 20 customers and ask for a review</strong><p>Right now. Not tomorrow. Draft a short message, attach your Google review link, and send it. You&rsquo;ll be surprised how many respond.</p></div></div>
+  <div class="step-item"><div class="step-num">7</div><div><strong>Respond to every existing review</strong><p>Google rewards businesses that respond to reviews. Write a personalized response to each one &mdash; good and bad. It takes an hour and pays dividends for years.</p></div></div>
+</div>
+<h2>Your website</h2>
+<div class="step-list">
+  <div class="step-item"><div class="step-num">8</div><div><strong>Add your city and service to your page title</strong><p>The title tag of your homepage (what shows in the browser tab) should include your main service and city. "Jupiter Pool Cleaning &mdash; Blue Water Pools" beats "Welcome to Blue Water Pools."</p></div></div>
+  <div class="step-item"><div class="step-num">9</div><div><strong>Make sure your phone number is clickable on mobile</strong><p>If someone visiting your site on their phone can&rsquo;t tap your number to call, you&rsquo;re losing jobs every day. Check this right now.</p></div></div>
+  <div class="step-item"><div class="step-num">10</div><div><strong>Add a clear call to action above the fold</strong><p>Within the first screen of your homepage, there should be one clear action you want visitors to take: call, book, or get a quote. If it&rsquo;s buried, fix it.</p></div></div>
+</div>
+<h2>Social media (don&rsquo;t overthink it)</h2>
+<div class="step-list">
+  <div class="step-item"><div class="step-num">11</div><div><strong>Post one before/after photo per week on Facebook</strong><p>Before/after content is the highest-performing post type for service businesses. One post per week takes 10 minutes and keeps your page active.</p></div></div>
+  <div class="step-item"><div class="step-num">12</div><div><strong>Make sure your Facebook and Instagram bios link to your website</strong><p>Obvious, but often missed. Your social profiles should drive traffic to your website &mdash; check that the link is correct and current.</p></div></div>
+</div>
+<div class="callout"><p><strong>How long does this take?</strong> Most of this checklist can be completed in a single Saturday morning. The Google Business Profile work alone &mdash; items 1 through 5 &mdash; can meaningfully improve your local search ranking within 30&ndash;45 days.</p></div>
+<h2>After the checklist: what&rsquo;s next?</h2>
+<p>Once these foundations are in place, you&rsquo;re ready to layer in paid advertising effectively. Businesses that run ads without these basics in place waste a significant portion of their ad spend. The checklist is your foundation &mdash; everything else builds on it.</p>
+<div class="cta-inline">
+  <h3>Want us to do this for you?</h3>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html" style="display:inline-block;background:#E8735A;color:#fff;font-weight:700;padding:0.75rem 1.75rem;border-radius:6px;text-decoration:none;">Book a Free Audit</a>
+</div>
+</div></div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>

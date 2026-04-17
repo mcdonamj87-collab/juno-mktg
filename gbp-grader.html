@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Free Google Business Profile grader for South Florida small businesses. Score your GBP out of 100 and see exactly what to fix."/>
+  <title>Google Business Profile Grader &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#F5F5F5;color:#0A2540;}
+    :root{--teal:#00B4CC;--navy:#0A2540;--navy2:#0D3060;--coral:#E8735A;--muted:#5A8A9F;--mono:'JetBrains Mono',monospace;}
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .tool-hero{background:var(--navy);padding:3.5rem 2.5rem 4rem;text-align:center;}
+    .tool-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);}
+    .tool-hero h1{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#fff;margin-bottom:0.75rem;}
+    .tool-hero p{font-size:1rem;color:rgba(255,255,255,0.55);max-width:540px;margin:0 auto;}
+    .tool-wrap{max-width:720px;margin:0 auto;padding:3rem 2rem;}
+    .card{background:#fff;border-radius:16px;padding:2rem;margin-bottom:1.5rem;border:1px solid #E8DDD0;}
+    .card-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.5rem;}
+    .card-title span{font-family:var(--mono);font-size:0.7rem;color:var(--teal);background:#E6F9FB;padding:0.15rem 0.45rem;border-radius:3px;}
+    .question{margin-bottom:1.25rem;}
+    .question label{display:block;font-size:0.9rem;font-weight:600;color:var(--navy);margin-bottom:0.6rem;}
+    .question p.hint{font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;line-height:1.5;}
+    .radio-group{display:flex;flex-direction:column;gap:0.5rem;}
+    .radio-opt{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 0.85rem;border:1px solid #E8DDD0;border-radius:8px;cursor:pointer;transition:border-color 0.15s;}
+    .radio-opt:hover{border-color:var(--teal);}
+    .radio-opt input{accent-color:var(--teal);}
+    .radio-opt span{font-size:0.85rem;color:#2a4a60;}
+    .submit-btn{background:var(--teal);color:#fff;font-weight:700;font-size:1rem;padding:0.9rem 2rem;border-radius:8px;border:none;cursor:pointer;width:100%;font-family:var(--mono);}
+    .result-card{background:var(--navy);border-radius:16px;padding:2rem;text-align:center;display:none;}
+    .score-circle{width:120px;height:120px;border-radius:50%;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;flex-direction:column;border:4px solid var(--teal);}
+    .score-num{font-size:2.5rem;font-weight:900;color:#fff;line-height:1;}
+    .score-label{font-size:0.65rem;font-family:var(--mono);color:var(--teal);text-transform:uppercase;letter-spacing:0.1em;}
+    .score-grade{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:0.5rem;}
+    .score-desc{font-size:0.9rem;color:rgba(255,255,255,0.55);margin-bottom:1.75rem;line-height:1.65;}
+    .fixes-list{text-align:left;margin-bottom:1.75rem;}
+    .fix-item{display:flex;gap:0.75rem;align-items:flex-start;padding:0.75rem;background:rgba(255,255,255,0.04);border:1px solid rgba(0,180,204,0.15);border-radius:8px;margin-bottom:0.65rem;}
+    .fix-dot{width:8px;height:8px;min-width:8px;background:var(--coral);border-radius:50%;margin-top:5px;}
+    .fix-text{font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.6;}
+    .fix-text strong{color:#fff;display:block;margin-bottom:2px;}
+    .result-cta{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:8px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    @media(max-width:600px){.tool-hero{padding:2.5rem 1.25rem 3rem;}.tool-hero h1{font-size:1.85rem;}.tool-wrap{padding:2rem 1rem;}.card{padding:1.5rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="17" fill="#00B4CC"/><circle cx="17" cy="17" r="6" fill="#0A2540"/><circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/><circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/></svg>
+    <div class="nav-logo-text">Juno<span>Mktg</span></div>
+  </a>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+</nav>
+
+<div class="tool-hero">
+  <div class="tool-eyebrow">Free Tool &middot; Google Business Profile</div>
+  <h1>Grade Your Google Business Profile</h1>
+  <p>Answer 10 quick questions and get your GBP score out of 100 &mdash; plus a prioritized list of exactly what to fix first.</p>
+</div>
+
+<div class="tool-wrap">
+  <div id="quizForm">
+    <div class="card">
+      <div class="card-title">Profile Basics <span>25 pts</span></div>
+
+      <div class="question">
+        <label>Is your Google Business Profile claimed and verified?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q1" value="10"/> <span>Yes, fully verified</span></label>
+          <label class="radio-opt"><input type="radio" name="q1" value="0"/> <span>No, or I&rsquo;m not sure</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>Is your primary business category specific to your service?</label>
+        <p class="hint">e.g. "HVAC Contractor" not just "Contractor"</p>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q2" value="10"/> <span>Yes, very specific</span></label>
+          <label class="radio-opt"><input type="radio" name="q2" value="5"/> <span>Somewhat &mdash; could be more specific</span></label>
+          <label class="radio-opt"><input type="radio" name="q2" value="0"/> <span>No, it&rsquo;s very general</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>Does your business description mention your city and main service?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q3" value="5"/> <span>Yes, clearly</span></label>
+          <label class="radio-opt"><input type="radio" name="q3" value="0"/> <span>Not really</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Photos <span>15 pts</span></div>
+      <div class="question">
+        <label>How many photos do you have on your Google profile?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q4" value="15"/> <span>20 or more</span></label>
+          <label class="radio-opt"><input type="radio" name="q4" value="8"/> <span>10&ndash;19</span></label>
+          <label class="radio-opt"><input type="radio" name="q4" value="3"/> <span>1&ndash;9</span></label>
+          <label class="radio-opt"><input type="radio" name="q4" value="0"/> <span>None</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Reviews <span>30 pts</span></div>
+
+      <div class="question">
+        <label>How many Google reviews do you have?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q5" value="15"/> <span>More than 50</span></label>
+          <label class="radio-opt"><input type="radio" name="q5" value="10"/> <span>25&ndash;50</span></label>
+          <label class="radio-opt"><input type="radio" name="q5" value="4"/> <span>10&ndash;24</span></label>
+          <label class="radio-opt"><input type="radio" name="q5" value="0"/> <span>Fewer than 10</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>What is your average Google star rating?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q6" value="10"/> <span>4.7 or higher</span></label>
+          <label class="radio-opt"><input type="radio" name="q6" value="6"/> <span>4.3&ndash;4.6</span></label>
+          <label class="radio-opt"><input type="radio" name="q6" value="2"/> <span>4.0&ndash;4.2</span></label>
+          <label class="radio-opt"><input type="radio" name="q6" value="0"/> <span>Below 4.0</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>Do you respond to your Google reviews?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q7" value="5"/> <span>Yes, to every review</span></label>
+          <label class="radio-opt"><input type="radio" name="q7" value="2"/> <span>Sometimes</span></label>
+          <label class="radio-opt"><input type="radio" name="q7" value="0"/> <span>Rarely or never</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Activity <span>20 pts</span></div>
+
+      <div class="question">
+        <label>When did you last post an update on your Google Business Profile?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q8" value="10"/> <span>Within the last 2 weeks</span></label>
+          <label class="radio-opt"><input type="radio" name="q8" value="5"/> <span>Within the last month</span></label>
+          <label class="radio-opt"><input type="radio" name="q8" value="0"/> <span>More than a month ago, or never</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>Do you have your Q&amp;A section set up with common customer questions?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q9" value="5"/> <span>Yes</span></label>
+          <label class="radio-opt"><input type="radio" name="q9" value="0"/> <span>No</span></label>
+        </div>
+      </div>
+
+      <div class="question">
+        <label>Is your website linked and does it clearly mention your service area?</label>
+        <div class="radio-group">
+          <label class="radio-opt"><input type="radio" name="q10" value="5"/> <span>Yes to both</span></label>
+          <label class="radio-opt"><input type="radio" name="q10" value="2"/> <span>Website linked but no service area mentions</span></label>
+          <label class="radio-opt"><input type="radio" name="q10" value="0"/> <span>No website linked</span></label>
+        </div>
+      </div>
+    </div>
+
+    <button class="submit-btn" onclick="calculateScore()">Calculate My GBP Score &rarr;</button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="score-circle" id="scoreCircle">
+      <div class="score-num" id="scoreNum">--</div>
+      <div class="score-label">out of 100</div>
+    </div>
+    <div class="score-grade" id="scoreGrade"></div>
+    <div class="score-desc" id="scoreDesc"></div>
+    <div class="fixes-list" id="fixesList"></div>
+    <a class="result-cta" href="/contact.html">Get a Free Professional Audit &rarr;</a>
+  </div>
+</div>
+
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+
+<script>
+function calculateScore() {
+  var questions = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10'];
+  var score = 0;
+  var answers = {};
+  var missing = false;
+
+  for (var i = 0; i < questions.length; i++) {
+    var radios = document.getElementsByName(questions[i]);
+    var answered = false;
+    for (var j = 0; j < radios.length; j++) {
+      if (radios[j].checked) {
+        answers[questions[i]] = parseInt(radios[j].value);
+        score += parseInt(radios[j].value);
+        answered = true;
+        break;
+      }
+    }
+    if (!answered) { missing = true; break; }
+  }
+
+  if (missing) {
+    alert('Please answer all questions to get your score.');
+    return;
+  }
+
+  var grade, desc, fixes = [];
+
+  if (score >= 85) {
+    grade = 'Excellent Profile';
+    desc = 'Your Google Business Profile is well optimized. Focus on maintaining consistency and continuing to build reviews each month.';
+  } else if (score >= 70) {
+    grade = 'Good Profile';
+    desc = 'Your profile is solid but has room for improvement. The fixes below will meaningfully improve your local search ranking.';
+  } else if (score >= 50) {
+    grade = 'Needs Work';
+    desc = 'Your profile is missing several key optimization factors. Fixing these issues should noticeably improve your visibility within 30-60 days.';
+  } else {
+    grade = 'Major Gaps';
+    desc = 'Your profile has significant gaps that are likely costing you real leads. Prioritizing these fixes is the highest-leverage marketing action you can take right now.';
+  }
+
+  if (answers.q1 === 0) fixes.push({title:'Claim your profile', desc:'Your Google Business Profile needs to be claimed and verified before any other optimization matters. This is step one.'});
+  if (answers.q2 < 10) fixes.push({title:'Fix your business category', desc:'Choose a more specific primary category that exactly matches your core service. This directly affects which searches you appear in.'});
+  if (answers.q3 === 0) fixes.push({title:'Rewrite your business description', desc:'Include your main service and your city naturally in the first sentence. This is free and takes 10 minutes.'});
+  if (answers.q4 < 15) fixes.push({title:'Add more photos', desc:'Aim for 20+ photos. Include completed jobs, your team, and your business location. Update monthly.'});
+  if (answers.q5 < 10) fixes.push({title:'Build your review count urgently', desc:'Text your last 20 customers today and ask for a Google review. Then implement an automated system for every future job.'});
+  if (answers.q6 < 10) fixes.push({title:'Improve your star rating', desc:'A rating below 4.5 hurts your ranking and conversions. Focus on collecting more positive reviews and responding professionally to negatives.'});
+  if (answers.q7 < 5) fixes.push({title:'Respond to all reviews', desc:'Set aside 30 minutes per week to respond to every review. Google rewards this behavior with higher rankings.'});
+  if (answers.q8 < 10) fixes.push({title:'Post weekly on your profile', desc:'One post per week signals activity to Google and keeps your profile appearing fresh in results.'});
+  if (answers.q9 === 0) fixes.push({title:'Set up your Q&A section', desc:'Add your 5 most common customer questions and answer them. This content appears in your listing and helps conversions.'});
+  if (answers.q10 < 5) fixes.push({title:'Link your website and add service area content', desc:'Your website should mention the cities you serve. This sends critical local relevance signals to Google.'});
+
+  document.getElementById('quizForm').style.display = 'none';
+  var rc = document.getElementById('resultCard');
+  rc.style.display = 'block';
+
+  var circle = document.getElementById('scoreCircle');
+  if (score >= 85) circle.style.borderColor = '#6ee7b7';
+  else if (score >= 70) circle.style.borderColor = '#33C4D9';
+  else if (score >= 50) circle.style.borderColor = '#fcd34d';
+  else circle.style.borderColor = '#E8735A';
+
+  document.getElementById('scoreNum').textContent = score;
+  document.getElementById('scoreGrade').textContent = grade;
+  document.getElementById('scoreDesc').textContent = desc;
+
+  var fixHtml = '';
+  for (var k = 0; k < fixes.length; k++) {
+    fixHtml += '<div class="fix-item"><div class="fix-dot"></div><div class="fix-text"><strong>' + fixes[k].title + '</strong>' + fixes[k].desc + '</div></div>';
+  }
+  if (fixes.length === 0) fixHtml = '<div class="fix-item"><div class="fix-dot" style="background:#6ee7b7;"></div><div class="fix-text"><strong>No major fixes needed</strong>Keep maintaining your profile consistently and focus on steady review growth.</div></div>';
+  document.getElementById('fixesList').innerHTML = fixHtml;
+}
+</script>
+</body>
+</html>

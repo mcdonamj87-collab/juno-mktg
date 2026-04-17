@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Free local ad budget estimator for South Florida small businesses. Find out what you should spend on Google and Meta ads based on your industry and city."/>
+  <title>Local Ad Budget Estimator &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#F5F5F5;color:#0A2540;}
+    :root{--teal:#00B4CC;--navy:#0A2540;--coral:#E8735A;--muted:#5A8A9F;--mono:'JetBrains Mono',monospace;}
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .tool-hero{background:var(--navy);padding:3.5rem 2.5rem 4rem;text-align:center;}
+    .tool-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);}
+    .tool-hero h1{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#fff;margin-bottom:0.75rem;}
+    .tool-hero p{font-size:1rem;color:rgba(255,255,255,0.55);max-width:520px;margin:0 auto;}
+    .tool-wrap{max-width:680px;margin:0 auto;padding:3rem 2rem;}
+    .card{background:#fff;border-radius:16px;padding:2rem;margin-bottom:1.5rem;border:1px solid #E8DDD0;}
+    .card h2{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;}
+    .select-group{margin-bottom:1.25rem;}
+    .select-group label{display:block;font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:0.45rem;}
+    .select-group select{width:100%;padding:0.7rem 0.9rem;border:1.5px solid #E8DDD0;border-radius:8px;font-size:0.95rem;font-family:inherit;color:var(--navy);background:#fff;cursor:pointer;}
+    .select-group select:focus{outline:none;border-color:var(--teal);}
+    .calc-btn{background:var(--teal);color:#fff;font-weight:700;font-size:1rem;padding:0.9rem 2rem;border-radius:8px;border:none;cursor:pointer;width:100%;font-family:var(--mono);}
+    .result-box{background:var(--navy);border-radius:16px;padding:2rem;display:none;margin-top:1.5rem;}
+    .budget-range{text-align:center;margin-bottom:1.75rem;}
+    .budget-num{font-size:2.75rem;font-weight:900;color:#33C4D9;letter-spacing:-0.04em;font-family:var(--mono);}
+    .budget-label{font-size:0.75rem;color:rgba(255,255,255,0.4);font-family:var(--mono);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
+    .breakdown-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.5rem;}
+    .breakdown-item{background:rgba(255,255,255,0.04);border:1px solid rgba(0,180,204,0.15);border-radius:8px;padding:1rem;}
+    .breakdown-item h4{font-family:var(--mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--teal);margin-bottom:0.4rem;}
+    .breakdown-item .amt{font-size:1.25rem;font-weight:900;color:#fff;font-family:var(--mono);}
+    .breakdown-item .desc{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:3px;line-height:1.4;}
+    .insight-box{background:rgba(255,255,255,0.04);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-bottom:1.5rem;}
+    .insight-box p{font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.65;}
+    .insight-box strong{color:#fff;}
+    .result-cta{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:8px;text-decoration:none;display:block;font-size:0.95rem;text-align:center;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    @media(max-width:600px){.tool-hero{padding:2.5rem 1.25rem 3rem;}.tool-hero h1{font-size:1.85rem;}.tool-wrap{padding:2rem 1rem;}.breakdown-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="17" fill="#00B4CC"/><circle cx="17" cy="17" r="6" fill="#0A2540"/><circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/><circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/></svg>
+    <div class="nav-logo-text">Juno<span>Mktg</span></div>
+  </a>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+</nav>
+
+<div class="tool-hero">
+  <div class="tool-eyebrow">Free Tool &middot; Ad Budget</div>
+  <h1>Local Ad Budget Estimator</h1>
+  <p>Tell us your industry, city, and goal. We&rsquo;ll give you a realistic monthly ad budget recommendation with a channel breakdown.</p>
+</div>
+
+<div class="tool-wrap">
+  <div class="card">
+    <h2>Tell us about your business</h2>
+    <div class="select-group">
+      <label>What industry are you in?</label>
+      <select id="industry">
+        <option value="">Select your industry...</option>
+        <option value="hvac">HVAC / Air Conditioning</option>
+        <option value="plumbing">Plumbing</option>
+        <option value="roofing">Roofing &amp; Contractors</option>
+        <option value="pool">Pool Service &amp; Repair</option>
+        <option value="landscaping">Landscaping &amp; Lawn Care</option>
+        <option value="restaurant">Restaurant &amp; Food Service</option>
+        <option value="legal">Law Firm / Attorney</option>
+        <option value="medical">Medical / Dental / Wellness</option>
+        <option value="retail">Local Retail</option>
+        <option value="cleaning">Cleaning Services</option>
+        <option value="other">Other Service Business</option>
+      </select>
+    </div>
+    <div class="select-group">
+      <label>What city are you primarily serving?</label>
+      <select id="city">
+        <option value="">Select your city...</option>
+        <option value="boca">Boca Raton</option>
+        <option value="wpb">West Palm Beach</option>
+        <option value="jupiter">Jupiter / Tequesta</option>
+        <option value="delray">Delray Beach</option>
+        <option value="boynton">Boynton Beach</option>
+        <option value="pbg">Palm Beach Gardens</option>
+        <option value="psl">Port St. Lucie</option>
+        <option value="stuart">Stuart / Martin County</option>
+        <option value="other">Other South Florida</option>
+      </select>
+    </div>
+    <div class="select-group">
+      <label>What is your primary marketing goal?</label>
+      <select id="goal">
+        <option value="">Select your goal...</option>
+        <option value="maintain">Maintain current lead volume</option>
+        <option value="grow">Grow by 25&ndash;50%</option>
+        <option value="aggressive">Aggressive growth (50%+)</option>
+        <option value="dominate">Dominate my local market</option>
+      </select>
+    </div>
+    <div class="select-group">
+      <label>What is your average job or transaction value?</label>
+      <select id="jobValue">
+        <option value="">Select range...</option>
+        <option value="low">Under $500</option>
+        <option value="mid">$500 &ndash; $2,000</option>
+        <option value="high">$2,000 &ndash; $8,000</option>
+        <option value="premium">Over $8,000</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="calc-btn" onclick="estimate()">Get My Budget Estimate &rarr;</button>
+
+  <div class="result-box" id="resultBox">
+    <div class="budget-range">
+      <div class="budget-num" id="budgetNum"></div>
+      <div class="budget-label">recommended monthly ad spend</div>
+    </div>
+    <div class="breakdown-grid" id="breakdownGrid"></div>
+    <div class="insight-box" id="insightBox"></div>
+    <a class="result-cta" href="/contact.html">Get a Custom Strategy Session &rarr;</a>
+  </div>
+</div>
+
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+
+<script>
+var industryData = {
+  hvac:{base:800,lsa:true,cpc:'high',label:'HVAC'},
+  plumbing:{base:700,lsa:true,cpc:'high',label:'Plumbing'},
+  roofing:{base:1000,lsa:false,cpc:'very_high',label:'Roofing'},
+  pool:{base:600,lsa:false,cpc:'medium',label:'Pool Service'},
+  landscaping:{base:500,lsa:false,cpc:'medium',label:'Landscaping'},
+  restaurant:{base:500,lsa:false,cpc:'low',label:'Restaurant'},
+  legal:{base:1500,lsa:false,cpc:'very_high',label:'Legal'},
+  medical:{base:800,lsa:false,cpc:'high',label:'Medical/Dental'},
+  retail:{base:400,lsa:false,cpc:'low',label:'Retail'},
+  cleaning:{base:500,lsa:true,cpc:'medium',label:'Cleaning'},
+  other:{base:600,lsa:false,cpc:'medium',label:'Service Business'}
+};
+var cityMultiplier = {boca:1.2,wpb:1.15,jupiter:1.0,delray:1.05,boynton:0.95,pbg:1.1,psl:0.9,stuart:0.85,other:0.95};
+var goalMultiplier = {maintain:1.0,grow:1.4,aggressive:1.8,dominate:2.4};
+var jobValueMultiplier = {low:0.8,mid:1.0,high:1.2,premium:1.4};
+
+function estimate() {
+  var ind = document.getElementById('industry').value;
+  var city = document.getElementById('city').value;
+  var goal = document.getElementById('goal').value;
+  var jv = document.getElementById('jobValue').value;
+
+  if (!ind || !city || !goal || !jv) { alert('Please fill in all four fields.'); return; }
+
+  var iData = industryData[ind];
+  var base = iData.base;
+  var total = Math.round(base * cityMultiplier[city] * goalMultiplier[goal] * jobValueMultiplier[jv] / 50) * 50;
+  var low = Math.round(total * 0.85 / 50) * 50;
+  var high = Math.round(total * 1.15 / 50) * 50;
+
+  document.getElementById('budgetNum').textContent = '$' + low.toLocaleString() + ' \u2013 $' + high.toLocaleString() + '/mo';
+
+  var lsaPct = iData.lsa ? 0.45 : 0;
+  var metaPct = ind === 'restaurant' || ind === 'retail' ? 0.4 : 0.25;
+  var googlePct = iData.lsa ? 0.35 : 0.55;
+  var managePct = 0.2;
+
+  var lsaAmt = iData.lsa ? Math.round(total * lsaPct / 50) * 50 : 0;
+  var metaAmt = Math.round(total * metaPct / 50) * 50;
+  var googleAmt = Math.round(total * googlePct / 50) * 50;
+
+  var grid = '';
+  if (iData.lsa) {
+    grid += '<div class="breakdown-item"><h4>Google Local Services Ads</h4><div class="amt">$' + lsaAmt.toLocaleString() + '/mo</div><div class="desc">Pay per lead, not per click. Highest intent channel for ' + iData.label + '.</div></div>';
+  }
+  grid += '<div class="breakdown-item"><h4>Google Search Ads</h4><div class="amt">$' + googleAmt.toLocaleString() + '/mo</div><div class="desc">Capture high-intent local searches in ' + document.getElementById('city').options[document.getElementById('city').selectedIndex].text + '.</div></div>';
+  grid += '<div class="breakdown-item"><h4>Meta Ads (Facebook/Instagram)</h4><div class="amt">$' + metaAmt.toLocaleString() + '/mo</div><div class="desc">Brand awareness and retargeting to reach local customers on social.</div></div>';
+  grid += '<div class="breakdown-item"><h4>Management &amp; Optimization</h4><div class="amt">Included</div><div class="desc">Weekly bid optimization, copy testing, and reporting.</div></div>';
+  document.getElementById('breakdownGrid').innerHTML = grid;
+
+  var cityName = document.getElementById('city').options[document.getElementById('city').selectedIndex].text;
+  var goalName = document.getElementById('goal').options[document.getElementById('goal').selectedIndex].text.toLowerCase();
+  var insight = '<p>For a <strong>' + iData.label + ' business in ' + cityName + '</strong> with a goal to ' + goalName + ', this budget range reflects typical market rates and competitive spend levels in South Florida. ';
+
+  if (iData.cpc === 'very_high') insight += 'Note: your industry has very high cost-per-click in this market &mdash; a higher budget gives you significantly better results and visibility. ';
+  else if (iData.cpc === 'low') insight += 'Your industry has relatively low cost-per-click in this market &mdash; your budget should go further than in more competitive categories. ';
+
+  insight += 'These estimates assume your <strong>Google Business Profile is fully optimized</strong> &mdash; ads perform significantly better when built on a strong organic foundation.</p>';
+  document.getElementById('insightBox').innerHTML = insight;
+
+  document.getElementById('resultBox').style.display = 'block';
+  document.getElementById('resultBox').scrollIntoView({behavior:'smooth', block:'start'});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Why your competitor ranks higher on Google than you and what to do about it. Local SEO factors explained for South Florida small business owners."/>
+  <title>The Real Reason Your Competitor Ranks Higher on Google Than You &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;line-height:1.7;}
+    :root{
+      --teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;
+      --cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;
+      --muted:#5A8A9F;--coral:#E8735A;--mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:34px;height:34px;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .wrap-narrow{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:600;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);font-family:var(--mono);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .wrap,.wrap-narrow{padding:0 1.25rem;}
+    }
+
+    .blog-hero{background:var(--navy);padding:4rem 2.5rem 5rem;position:relative;overflow:hidden;}
+    .blog-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .blog-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+    .blog-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .blog-hero h1{font-size:2.75rem;font-weight:900;letter-spacing:-0.04em;color:#fff;line-height:1.05;margin-bottom:1rem;}
+    .blog-hero p.lead{font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1.5rem;}
+    .blog-meta{display:flex;gap:1.5rem;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.3);}
+    .blog-body{padding:4rem 0;}
+    .blog-content{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    .blog-content h2{font-size:1.65rem;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin:2.5rem 0 1rem;}
+    .blog-content h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:2rem 0 0.65rem;}
+    .blog-content p{font-size:1rem;color:#2a4a60;line-height:1.85;margin-bottom:1.25rem;}
+    .blog-content ul,.blog-content ol{margin:1rem 0 1.5rem 1.5rem;}
+    .blog-content li{font-size:0.95rem;color:#2a4a60;line-height:1.8;margin-bottom:0.4rem;}
+    .callout{background:var(--teal-pale);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .callout p{color:#0a3a4a;margin:0;font-size:0.95rem;}
+    .tip-box{background:var(--navy);border-radius:12px;padding:1.5rem 2rem;margin:2rem 0;}
+    .tip-box h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;}
+    .tip-box p{color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;margin:0;}
+    .cta-inline{background:var(--teal);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-inline h3{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:0.5rem;}
+    .cta-inline p{font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:1.25rem;font-family:var(--mono);}
+    @media(max-width:768px){
+      .blog-hero{padding:3rem 1.25rem 4rem;}
+      .blog-hero h1{font-size:2rem;}
+      .blog-content{padding:0 1.25rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#00B4CC"/>
+  <circle cx="17" cy="17" r="6" fill="#0A2540"/>
+  <circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/>
+</svg><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links"><a href="/services.html">services</a><a href="/about.html">about</a><a href="/contact.html">contact</a></div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mn">
+  <a href="/services.html" onclick="document.getElementById('mn').classList.remove('open')">services</a><a href="/about.html" onclick="document.getElementById('mn').classList.remove('open')">about</a><a href="/contact.html" onclick="document.getElementById('mn').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mn').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="blog-hero">
+  <div class="blog-hero-bg"></div>
+  <div class="blog-hero-inner">
+    <div class="blog-eyebrow">Blog &middot; Local SEO</div>
+    <h1>The Real Reason Your Competitor Ranks Higher on Google Than You</h1>
+    <p class="lead">It&rsquo;s probably not their website. It&rsquo;s not their budget. There are three specific things local businesses do to dominate Google &mdash; and most of your competitors haven&rsquo;t figured them out yet either.</p>
+    <div class="blog-meta"><span>&#9201; 7 min read</span><span>Juno Mktg &middot; South Florida</span></div>
+  </div>
+</div>
+<div class="blog-body"><div class="blog-content">
+<h2>The question every business owner asks</h2>
+<p>You type your service and city into Google. Your competitor comes up first. You come up fourth, or fifth, or not at all. It&rsquo;s frustrating &mdash; especially if you know your work is better than theirs. What are they doing that you&rsquo;re not?</p>
+<p>The answer is almost never what people assume. It&rsquo;s not that they have a fancier website. It&rsquo;s not that they&rsquo;re spending more on ads. Google&rsquo;s local ranking algorithm cares about three things more than anything else: relevance, proximity, and prominence. Understanding these three factors explains most of the gap between you and whoever is ranking above you.</p>
+<h2>Factor 1: Relevance &mdash; Does Google understand what you do?</h2>
+<p>Google can only rank you for searches that it understands you&rsquo;re relevant to. If your Google Business Profile is set to the wrong primary category, or if your business description is vague, or if your website never mentions the specific services you offer &mdash; Google doesn&rsquo;t know to show you for those searches.</p>
+<p>Your competitor who ranks above you has almost certainly done a better job telling Google exactly what they do, where they do it, and who they serve. This is entirely fixable, and it&rsquo;s often the quickest win in local SEO.</p>
+<div class="callout"><p><strong>Quick fix:</strong> Log into your Google Business Profile and check your primary category. Then read your business description. Does it clearly state your main service and the cities you serve? If not, rewrite it. Changes here can move the needle within 30 days.</p></div>
+<h2>Factor 2: Prominence &mdash; How well-known is your business online?</h2>
+<p>This is where review count matters enormously. Google treats reviews as a proxy for real-world reputation. A business with 90 reviews at 4.8 stars is telling Google: "A lot of people have used this business and they liked it." That&rsquo;s a powerful signal.</p>
+<p>Look at whoever ranks above you. How many reviews do they have? That number is your target. If they have 60 reviews and you have 12, that gap alone explains most of the ranking difference &mdash; and it&rsquo;s the gap you should work hardest to close.</p>
+<h3>Reviews are not the only prominence signal</h3>
+<p>Google also looks at how often your business is mentioned on other websites (local directories, news sites, chamber of commerce listings), whether your business information is consistent across the web, and how many people click on your profile in search results. All of these contribute to prominence.</p>
+<h2>Factor 3: Proximity &mdash; How close is your business to the searcher?</h2>
+<p>This one you can&rsquo;t control directly &mdash; if a searcher is in Boca Raton and your business is based in Delray Beach, a Boca-based competitor has a proximity advantage for that search. But proximity is only one of three factors. Businesses with superior relevance and prominence regularly outrank closer competitors.</p>
+<p>This means investing in reviews and profile optimization matters especially for businesses that aren&rsquo;t physically located in the city they want to rank for.</p>
+<h2>The website factor people overlook</h2>
+<p>Your website affects your Google Maps ranking more than most people realize &mdash; not because of design, but because of content. Google uses signals from your website to validate and supplement your Business Profile information. A website that clearly lists your services, mentions your city, and includes customer testimonials sends strong local relevance signals.</p>
+<div class="tip-box"><h4>// The single highest-impact website change</h4><p>Add a page to your website for each city you serve. A page titled "HVAC Services in Jupiter, FL" that talks specifically about serving Jupiter homeowners sends a very direct relevance signal to Google for Jupiter searches. This is one of the most reliable local SEO tactics that still works.</p></div>
+<h2>How long does it take to catch up?</h2>
+<p>In most South Florida markets, a business that commits to fixing their Google Business Profile, running a systematic review collection program, and posting consistently can meaningfully close the gap with a dominant competitor in 60&ndash;90 days. In less competitive markets (Port St. Lucie, Jupiter, parts of Delray), it can happen faster.</p>
+<p>The key is consistency. Google&rsquo;s algorithm rewards businesses that are consistently active and consistently earning new reviews. It doesn&rsquo;t respond well to sporadic bursts of effort followed by months of nothing.</p>
+<h2>What if my competitor is doing everything right?</h2>
+<p>If the business above you has 150 reviews, a perfect profile, and a great website &mdash; you need to out-invest them over time. Reviews compound. Content compounds. The longer you wait to start, the bigger the gap becomes. The best time to start was a year ago. The second best time is now.</p>
+<div class="cta-inline">
+  <h3>Want help putting this into practice?</h3>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html" style="display:inline-block;background:#E8735A;color:#fff;font-weight:700;padding:0.75rem 1.75rem;border-radius:6px;text-decoration:none;">Book a Free Audit</a>
+</div>
+</div></div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>

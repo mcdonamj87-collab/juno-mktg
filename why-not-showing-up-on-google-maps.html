@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Find out why your South Florida business isn't showing up on Google Maps and get a step-by-step fix. Local SEO tips for small business owners."/>
+  <title>Why Your Business Isn't Showing Up on Google Maps (And How to Fix It) &mdash; Juno Mktg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;line-height:1.7;}
+    :root{
+      --teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;
+      --cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;
+      --muted:#5A8A9F;--coral:#E8735A;--mono:'JetBrains Mono',monospace;
+    }
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:34px;height:34px;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:var(--coral);color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .wrap-narrow{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .btn-coral{background:var(--coral);color:#fff;font-weight:700;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.95rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:600;padding:0.85rem 1.75rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:0.9rem;border:1.5px solid rgba(255,255,255,0.3);font-family:var(--mono);}
+    @media(max-width:768px){
+      nav{padding:1rem 1.25rem;}
+      .nav-links{display:none;}
+      .nav-hamburger{display:flex;}
+      .nav-cta{display:none;}
+      .wrap,.wrap-narrow{padding:0 1.25rem;}
+    }
+
+    .res-hero{background:var(--navy);padding:4rem 2.5rem 5rem;position:relative;overflow:hidden;}
+    .res-hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .res-hero-inner{max-width:760px;margin:0 auto;position:relative;z-index:2;}
+    .res-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:#33C4D9;font-size:0.72rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:4px;margin-bottom:1.25rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .res-hero h1{font-size:2.75rem;font-weight:900;letter-spacing:-0.04em;color:#fff;line-height:1.05;margin-bottom:1rem;}
+    .res-hero p.lead{font-size:1.05rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:1.5rem;}
+    .res-meta{display:flex;gap:1.5rem;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.3);}
+    .res-body{padding:4rem 0;}
+    .res-content{max-width:760px;margin:0 auto;padding:0 2.5rem;}
+    .res-content h2{font-size:1.65rem;font-weight:800;letter-spacing:-0.03em;color:var(--navy);margin:2.5rem 0 1rem;}
+    .res-content h3{font-size:1.15rem;font-weight:700;color:var(--navy);margin:2rem 0 0.65rem;}
+    .res-content p{font-size:1rem;color:#2a4a60;line-height:1.85;margin-bottom:1.25rem;}
+    .res-content ul,.res-content ol{margin:1rem 0 1.5rem 1.5rem;}
+    .res-content li{font-size:0.95rem;color:#2a4a60;line-height:1.8;margin-bottom:0.4rem;}
+    .callout{background:var(--teal-pale);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:2rem 0;}
+    .callout p{color:#0a3a4a;margin:0;font-size:0.95rem;}
+    .callout strong{color:var(--navy);}
+    .tip-box{background:var(--navy);border-radius:12px;padding:1.5rem 2rem;margin:2rem 0;}
+    .tip-box h4{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;}
+    .tip-box p{color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.7;margin:0;}
+    .step-list{display:flex;flex-direction:column;gap:1.5rem;margin:1.5rem 0 2rem;}
+    .step-item{display:flex;gap:1.25rem;align-items:flex-start;}
+    .step-num{width:32px;height:32px;min-width:32px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.75rem;font-weight:700;color:#fff;}
+    .step-item strong{display:block;font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+    .step-item p{font-size:0.88rem;color:var(--muted);line-height:1.65;margin:0;}
+    .cta-inline{background:var(--teal);border-radius:12px;padding:2rem;text-align:center;margin:3rem 0;}
+    .cta-inline h3{font-size:1.35rem;font-weight:800;color:#fff;margin-bottom:0.5rem;}
+    .cta-inline p{font-size:0.88rem;color:rgba(255,255,255,0.75);margin-bottom:1.25rem;font-family:var(--mono);}
+    @media(max-width:768px){
+      .res-hero{padding:3rem 1.25rem 4rem;}
+      .res-hero h1{font-size:2rem;}
+      .res-content{padding:0 1.25rem;}
+    }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><svg class="nav-logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="17" cy="17" r="17" fill="#00B4CC"/>
+  <circle cx="17" cy="17" r="6" fill="#0A2540"/>
+  <circle cx="17" cy="17" r="10" fill="none" stroke="#0A2540" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="17" cy="17" r="14" fill="none" stroke="#0A2540" stroke-width="1" opacity="0.25"/>
+</svg><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links"><a href="/services.html">services</a><a href="/about.html">about</a><a href="/contact.html">contact</a></div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mn').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mn">
+  <a href="/services.html" onclick="document.getElementById('mn').classList.remove('open')">services</a><a href="/about.html" onclick="document.getElementById('mn').classList.remove('open')">about</a><a href="/contact.html" onclick="document.getElementById('mn').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mn').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="res-hero">
+  <div class="res-hero-bg"></div>
+  <div class="res-hero-inner">
+    <div class="res-eyebrow">Resource Guide &middot; Local SEO</div>
+    <h1>Why Your Business Isn't Showing Up on Google Maps (And How to Fix It)</h1>
+    <p class="lead">If you&rsquo;re not in the Google Maps top 3 for your service area, you&rsquo;re invisible to most local customers. Here&rsquo;s exactly why &mdash; and what to do about it.</p>
+    <div class="res-meta"><span>&#9201; 8 min read</span><span>Juno Mktg &middot; South Florida</span></div>
+  </div>
+</div>
+<div class="res-body"><div class="res-content">
+<h2>The Google Maps local pack: why it matters</h2>
+<p>When someone in South Florida searches for a local service &mdash; "pool repair Boca Raton" or "HVAC West Palm Beach" &mdash; Google shows a map with three business listings before any other results. This is called the local pack, and it gets 44% of all clicks on the page.</p>
+<p>If you&rsquo;re not in those three spots, most searchers will never see you. They&rsquo;ll call one of the three businesses that is showing up. This is the single biggest source of missed leads for South Florida small businesses.</p>
+<div class="callout"><p><strong>Quick check:</strong> Open an incognito window and search for your service + your city. If you&rsquo;re not in the top 3 map results, keep reading.</p></div>
+<h2>The most common reasons you&rsquo;re not ranking</h2>
+<h3>1. Your Google Business Profile is incomplete</h3>
+<p>Google uses your Business Profile as the primary source of information about your business. If your profile is missing your hours, has an outdated phone number, is in the wrong category, or has no photos &mdash; Google won&rsquo;t trust it enough to rank you prominently.</p>
+<p>Fix: Log into your Google Business Profile and make sure every single field is filled out. Primary category matters most &mdash; pick the one that exactly matches your core service, not a general category.</p>
+<h3>2. You don&rsquo;t have enough reviews (or your rating is too low)</h3>
+<p>Google uses review count and rating as a major ranking signal. If your competitor has 80 reviews and you have 15, they&rsquo;ll almost always rank above you. If your rating is below 4.2, Google may suppress your listing even if everything else looks good.</p>
+<p>Fix: Implement a review collection system immediately. See our guide on getting more Google reviews for a step-by-step approach.</p>
+<h3>3. Your Name, Address, and Phone aren&rsquo;t consistent online</h3>
+<p>Google cross-references your business information across hundreds of websites &mdash; Yelp, Facebook, your website, local directories. If your phone number is formatted differently on each one, or your address has small variations, Google loses confidence in your information and your ranking drops.</p>
+<p>This is called NAP consistency, and it&rsquo;s one of the most commonly overlooked local SEO factors.</p>
+<h3>4. Your website doesn&rsquo;t mention your service area</h3>
+<p>Google uses your website content to understand where you operate and what you do. If your website never mentions "West Palm Beach" or "Boca Raton," Google has no signal that you serve those areas.</p>
+<p>Fix: Add location-specific content to your website. At minimum, your footer and contact page should mention your service area cities.</p>
+<h3>5. You haven&rsquo;t posted anything on your Google Business Profile recently</h3>
+<p>Google rewards active profiles. Businesses that post updates, photos, and offers regularly are seen as more relevant and trustworthy. If your last Google post was six months ago, that&rsquo;s a negative signal.</p>
+<div class="step-list">
+  <div class="step-item"><div class="step-num">1</div><div><strong>Audit your Google Business Profile completely</strong><p>Check every field: name, address, phone, website, hours, categories, photos, description. Fix anything missing or outdated.</p></div></div>
+  <div class="step-item"><div class="step-num">2</div><div><strong>Start collecting reviews systematically</strong><p>Set a goal of 10 new reviews per month. Use SMS requests sent within 24 hours of completing each job.</p></div></div>
+  <div class="step-item"><div class="step-num">3</div><div><strong>Post on your Google profile weekly</strong><p>Share a completed job photo, a seasonal tip, or a promotion. Consistent posting signals activity to Google.</p></div></div>
+  <div class="step-item"><div class="step-num">4</div><div><strong>Fix your NAP consistency</strong><p>Search your business name and check that your address and phone appear identically on every directory listing.</p></div></div>
+  <div class="step-item"><div class="step-num">5</div><div><strong>Add location keywords to your website</strong><p>Make sure your website clearly states which cities and neighborhoods you serve.</p></div></div>
+</div>
+<h2>How long does it take to see results?</h2>
+<p>Most businesses see movement in their Google Maps ranking within 30&ndash;60 days of making these fixes. Review count improvement is the fastest lever &mdash; adding 20&ndash;30 new reviews in a month can move you from page 2 to the local pack in competitive markets like Boca Raton or West Palm Beach.</p>
+<div class="tip-box"><h4>// The honest answer on timeline</h4><p>Local SEO is not instant. Google needs time to recrawl your information and recalibrate rankings. But businesses that do this work consistently almost always see a return within 60&ndash;90 days &mdash; and the results compound over time.</p></div>
+<div class="cta-inline">
+  <h3>Want us to do this for you?</h3>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html" style="display:inline-block;background:#E8735A;color:#fff;font-weight:700;padding:0.75rem 1.75rem;border-radius:6px;text-decoration:none;">Book a Free Audit</a>
+</div>
+</div></div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>
