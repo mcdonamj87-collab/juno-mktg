@@ -1,1 +1,154 @@
-404: Not Found
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About &mdash; Juno Mktg &middot; AI Marketing &middot; Gold Coast &amp; Treasure Coast</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#0A2540;}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+    .section-eyebrow{font-family:var(--mono);font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .section-eyebrow::before{content:'\2726';font-size:0.7rem;}
+    .section-heading{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:var(--navy);margin-bottom:1rem;}
+    .section-sub{font-size:1rem;color:var(--muted);line-height:1.75;max-width:560px;}
+    footer{background:var(--navy);padding:1.75rem 2.5rem;text-align:center;font-family:var(--mono);font-size:0.72rem;color:rgba(255,255,255,0.2);}
+    footer a{color:rgba(255,255,255,0.35);text-decoration:none;}
+    :root{--teal:#00B4CC;--teal-light:#33C4D9;--teal-pale:#E6F9FB;--cream:#FFFFFF;--cream2:#F5F5F5;--navy:#0A2540;--navy2:#0D3060;--muted:#5A8A9F;--mono:'JetBrains Mono',monospace;}
+    nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:1.1rem 2.5rem;position:sticky;top:0;z-index:100;}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+    .nav-logo-mark{width:34px;height:34px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:0.75rem;color:#fff;}
+    .nav-logo-text{font-size:1rem;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+    .nav-logo-text span{color:var(--teal);}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{font-size:0.85rem;color:rgba(255,255,255,0.6);text-decoration:none;font-weight:500;font-family:var(--mono);}
+    .nav-links a:hover{color:#fff;}
+    .nav-links a.active{color:#fff;}
+    .nav-cta{background:#E8735A;color:#fff;font-size:0.85rem;font-weight:700;padding:0.5rem 1.25rem;border-radius:6px;text-decoration:none;font-family:var(--mono);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+    .nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:var(--navy);padding:1rem 1.25rem 1.5rem;border-top:1px solid rgba(0,180,204,0.2);z-index:99;}
+    .nav-mobile a{display:block;font-family:var(--mono);font-size:0.9rem;color:rgba(255,255,255,0.7);text-decoration:none;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .nav-mobile.open{display:block;}
+    .hero{background:var(--navy);padding:6rem 2.5rem 7rem;position:relative;overflow:hidden;}
+    .hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,180,204,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,180,204,0.07) 1px,transparent 1px);background-size:40px 40px;z-index:1;}
+    .hero-bg-glow{position:absolute;top:-120px;right:-80px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,180,204,0.2) 0%,transparent 70%);z-index:1;}
+    .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,180,204,0.15);border:1px solid rgba(0,180,204,0.35);color:var(--teal-light);font-size:0.72rem;font-weight:600;padding:0.35rem 0.9rem;border-radius:4px;margin-bottom:1.75rem;font-family:var(--mono);letter-spacing:0.05em;}
+    .eyebrow-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:blink 2s infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .hero h1{font-size:3.5rem;font-weight:900;line-height:1.05;letter-spacing:-0.04em;color:#fff;margin-bottom:1.25rem;max-width:700px;}
+    .hero h1 em{font-style:normal;color:var(--teal);}
+    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:520px;}
+    .hero-waves{position:absolute;bottom:0;left:0;width:100%;overflow:hidden;line-height:0;z-index:3;}
+    .hero-waves svg{display:block;width:100%;height:80px;}
+    @keyframes wave1{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    @keyframes wave2{0%{transform:translateX(0);}100%{transform:translateX(50%);}}
+    @keyframes wave3{0%{transform:translateX(-50%);}100%{transform:translateX(0%);}}
+    .wave-path1{animation:wave1 12s linear infinite;}
+    .wave-path2{animation:wave2 9s linear infinite;}
+    .wave-path3{animation:wave3 15s linear infinite;}
+    .about-section{padding:5rem 0;background:#fff;}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+    .mission-text p{font-size:1rem;color:#3a5a70;line-height:1.85;margin-bottom:1.25rem;}
+    .stat-row{display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:1px solid #E8DDD0;}
+    .stat-item .num{font-size:2rem;font-weight:900;color:var(--teal);letter-spacing:-0.04em;}
+    .stat-item .lbl{font-size:0.72rem;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:0.06em;margin-top:3px;}
+    .mission-panel{background:var(--navy);border-radius:16px;padding:2rem;position:relative;overflow:hidden;}
+    .panel-glow{position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,180,204,0.25) 0%,transparent 70%);}
+    .panel-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;position:relative;z-index:1;}
+    .value-list{display:flex;flex-direction:column;gap:0.85rem;position:relative;z-index:1;}
+    .value-item{display:flex;align-items:flex-start;gap:0.75rem;padding:0.85rem;background:rgba(255,255,255,0.04);border:1px solid rgba(0,180,204,0.15);border-radius:8px;}
+    .value-dot{width:8px;height:8px;min-width:8px;background:var(--teal);border-radius:50%;margin-top:5px;}
+    .value-item strong{display:block;font-size:0.85rem;font-weight:700;color:#fff;margin-bottom:2px;}
+    .value-item p{font-size:0.75rem;color:rgba(255,255,255,0.4);font-family:var(--mono);line-height:1.55;}
+    .how-section{background:var(--cream2);padding:5rem 0;border-top:1px solid #E8DDD0;border-bottom:1px solid #E8DDD0;}
+    .steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
+    .step-card{position:relative;}
+    .step-num{font-family:var(--mono);font-size:0.7rem;font-weight:700;color:var(--teal);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;}
+    .step-num::before{content:'';display:block;width:24px;height:24px;background:rgba(0,180,204,0.15);border-radius:50%;border:1px solid rgba(0,180,204,0.4);}
+    .step-card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;}
+    .step-card p{font-size:0.82rem;color:var(--muted);line-height:1.65;}
+    .cta-section{background:var(--teal);padding:5rem 2.5rem;text-align:center;}
+    .cta-section h2{font-size:2.5rem;font-weight:900;letter-spacing:-0.04em;color:#fff;margin-bottom:0.75rem;}
+    .cta-section p{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:2rem;font-family:var(--mono);}
+    .btn-coral{background:#E8735A;color:#fff;font-weight:800;font-size:1rem;padding:0.9rem 2.25rem;border-radius:6px;text-decoration:none;display:inline-block;margin-right:1rem;}
+    .btn-outline{background:transparent;color:#fff;font-weight:700;font-size:0.9rem;padding:0.9rem 2rem;border-radius:6px;text-decoration:none;display:inline-block;border:1.5px solid rgba(255,255,255,0.4);font-family:var(--mono);}
+    @media(max-width:768px){nav{padding:1rem 1.25rem;}.nav-links{display:none;}.nav-hamburger{display:flex;}.nav-cta{display:none;}.hero{padding:3.5rem 1.25rem 6rem;}.hero h1{font-size:2.4rem;}.wrap{padding:0 1.25rem;}.section-heading{font-size:1.85rem;}.hero-waves svg{height:50px;}.about-section,.how-section{padding:3rem 0;}.two-col{grid-template-columns:1fr;gap:2.5rem;}.steps-grid{grid-template-columns:1fr 1fr;gap:1rem;}.cta-section{padding:3rem 1.25rem;}.cta-section h2{font-size:1.85rem;}.stat-row{gap:1.25rem;}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><div class="nav-logo-mark">J</div><div class="nav-logo-text">Juno<span>Mktg</span></div></a>
+  <div class="nav-links">
+    <a href="/services.html">services</a>
+    <a href="/about.html" class="active">about</a>
+    <a href="/contact.html">contact</a>
+  </div>
+  <a class="nav-cta" href="/contact.html">get_a_free_audit()</a>
+  <button class="nav-hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/services.html" onclick="document.getElementById('mobileNav').classList.remove('open')">services</a>
+  <a href="/about.html" onclick="document.getElementById('mobileNav').classList.remove('open')">about</a>
+  <a href="/contact.html" onclick="document.getElementById('mobileNav').classList.remove('open')">contact</a>
+  <a href="/contact.html" style="color:#E8735A;font-weight:700;" onclick="document.getElementById('mobileNav').classList.remove('open')">get_a_free_audit()</a>
+</div>
+<div class="hero">
+  <div class="hero-bg-grid"></div><div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="eyebrow-dot"></div>Gold Coast &middot; Treasure Coast</div>
+    <h1>We build the <em>unfair advantage</em> for local business.</h1>
+    <p class="hero-sub">Smarter tools. Sharper strategy. Real results &mdash; without the agency markup or the long-term contract.</p>
+  </div>
+  <div class="hero-waves"><svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><g class="wave-path3"><path d="M0,40 C180,70 360,10 540,40 C720,70 900,10 1080,40 C1260,70 1440,10 1620,40 C1800,70 1980,10 2160,40 L2160,80 L0,80 Z" fill="rgba(0,180,204,0.15)"/></g><g class="wave-path2"><path d="M0,50 C160,20 320,65 480,45 C640,25 800,60 960,42 C1120,24 1280,62 1440,44 C1600,26 1760,60 1920,44 L1920,80 L0,80 Z" fill="rgba(0,180,204,0.25)"/></g><g class="wave-path1"><path d="M0,55 C120,35 240,70 360,52 C480,34 600,68 720,52 C840,36 960,65 1080,52 C1200,39 1320,62 1440,52 C1560,42 1680,62 1800,52 L1800,80 L0,80 Z" fill="rgba(13,48,96,0.9)"/></g></svg></div>
+</div>
+<div class="about-section"><div class="wrap"><div class="two-col">
+  <div>
+    <div class="section-eyebrow">our mission</div>
+    <h2 class="section-heading">We build the unfair advantage for local business.</h2>
+    <div class="mission-text">
+      <p>Big agencies charge $5,000 a month and treat small businesses as an afterthought. DIY means spending 10 hours a week on marketing instead of running your business. There had to be a better way.</p>
+      <p>Juno Mktg uses AI to deliver enterprise-level marketing results at a price that makes sense for South Florida small businesses. Smarter tools. Sharper strategy. Real results.</p>
+      <p>We focus exclusively on the Gold Coast and Treasure Coast &mdash; which means we know your market, your competitors, and your customers better than any national agency ever could.</p>
+    </div>
+    <div class="stat-row">
+      <div class="stat-item"><div class="num">62%</div><div class="lbl">lower cost vs agencies</div></div>
+      <div class="stat-item"><div class="num">3&times;</div><div class="lbl">avg lead increase</div></div>
+      <div class="stat-item"><div class="num">$0</div><div class="lbl">setup fee ever</div></div>
+    </div>
+  </div>
+  <div class="mission-panel">
+    <div class="panel-glow"></div>
+    <div class="panel-label">// what we stand for</div>
+    <div class="value-list">
+      <div class="value-item"><div class="value-dot"></div><div><strong>Transparency first</strong><p>No jargon, no vanity metrics. You always know exactly what your marketing is doing.</p></div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>No long-term contracts</strong><p>We earn your business every month. Cancel any time &mdash; no penalties, no questions.</p></div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Local market focus</strong><p>We only work with Gold Coast &amp; Treasure Coast businesses. Your market is all we know.</p></div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>AI-powered, human-reviewed</strong><p>Every piece of content is checked before it goes out. AI speed, human judgment.</p></div></div>
+      <div class="value-item"><div class="value-dot"></div><div><strong>Results over vanity</strong><p>We measure leads, calls, and revenue &mdash; not likes and impressions.</p></div></div>
+    </div>
+  </div>
+</div></div></div>
+<div class="how-section"><div class="wrap">
+  <div class="section-eyebrow">how it works</div>
+  <h2 class="section-heading">From audit to results in days, not months.</h2>
+  <p class="section-sub">No 90-day onboarding. No strategy decks that sit in a drawer. We move fast.</p>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-num">01</div><h3>Free Strategy Call</h3><p>We audit your Google presence live on the call and identify your biggest opportunities. 30 minutes, no pitch.</p></div>
+    <div class="step-card"><div class="step-num">02</div><h3>Pick Your Plan</h3><p>Choose the package that fits your goals and budget. No setup fee, no contract required.</p></div>
+    <div class="step-card"><div class="step-num">03</div><h3>We Get to Work</h3><p>Your Google Business Profile is optimized, campaigns are live, and review automation is running &mdash; all within the first week.</p></div>
+    <div class="step-card"><div class="step-num">04</div><h3>Watch It Grow</h3><p>Monthly reports show exactly what&rsquo;s working. Rankings climb, reviews build, leads increase.</p></div>
+  </div>
+</div></div>
+<div class="cta-section">
+  <h2>Ready to get started?</h2>
+  <p>free 30-min strategy call &middot; no pitch &middot; no pressure</p>
+  <a class="btn-coral" href="/contact.html">Book a Free Call</a>
+  <a class="btn-outline" href="mailto:hello@junomktg.com">Send a Message</a>
+</div>
+<footer>juno_marketing.init() &middot; gold_coast + treasure_coast &middot; <a href="mailto:hello@junomktg.com">hello@junomktg.com</a></footer>
+</body>
+</html>
